@@ -767,12 +767,6 @@ minetest.register_node("default:chest_locked", {
 	allow_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
 		local meta = minetest.get_meta(pos)
 		if not has_locked_chest_privilege(meta, player) then
-			-- does this interest someone if nothing changed?
-			
-			--[[minetest.log("action", player:get_player_name()..
-					" tried to access a locked chest belonging to "..
-					meta:get_string("owner").." at "..
-					minetest.pos_to_string(pos))]]
 			return 0
 		end
 		return count
@@ -780,12 +774,6 @@ minetest.register_node("default:chest_locked", {
     allow_metadata_inventory_put = function(pos, listname, index, stack, player)
 		local meta = minetest.get_meta(pos)
 		if not has_locked_chest_privilege(meta, player) then
-			-- does this interest someone if nothing changed?
-			
-			--[[minetest.log("action", player:get_player_name()..
-					" tried to access a locked chest belonging to "..
-					meta:get_string("owner").." at "..
-					minetest.pos_to_string(pos))]]
 			return 0
 		end
 		return stack:get_count()
@@ -793,21 +781,9 @@ minetest.register_node("default:chest_locked", {
     allow_metadata_inventory_take = function(pos, listname, index, stack, player)
 		local meta = minetest.get_meta(pos)
 		if not has_locked_chest_privilege(meta, player) then
-			-- does this interest someone if nothing changed?
-			
-			--[[minetest.log("action", player:get_player_name()..
-					" tried to access a locked chest belonging to "..
-					meta:get_string("owner").." at "..
-					minetest.pos_to_string(pos))]]
 			return 0
 		end
 		return stack:get_count()
-	end,
-	on_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
-		-- does this interest someone if (nothing) changed? (move items inside of the chest inventory)
-		
-		--[[minetest.log("action", player:get_player_name()..
-				" moves stuff in locked chest at "..minetest.pos_to_string(pos))]]
 	end,
     on_metadata_inventory_put = function(pos, listname, index, stack, player)
 		minetest.log("action", player:get_player_name()..
@@ -819,10 +795,7 @@ minetest.register_node("default:chest_locked", {
 	end,
 	on_rightclick = function(pos, node, clicker)
 		local meta = minetest.get_meta(pos)
-		-- add formspec at old locked chests
-		if not meta:get_string("formspec") or meta:get_string("formspec") == "" then
-			meta:set_string("formspec", default.get_locked_chest_formspec(pos))
-			
+		if has_locked_chest_privilege(meta, clicker) then
 			minetest.show_formspec(
 				clicker:get_player_name(),
 				"default:chest_locked",
@@ -913,7 +886,7 @@ minetest.register_node("default:furnace", {
 	end,
 	allow_metadata_inventory_put = function(pos, listname, index, stack, player)
 		if minetest.is_protected(pos, player:get_player_name()) then
-			return
+			return 0
 		end
 		local meta = minetest.get_meta(pos)
 		local inv = meta:get_inventory()
@@ -934,7 +907,7 @@ minetest.register_node("default:furnace", {
 	end,
 	allow_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
 		if minetest.is_protected(pos, player:get_player_name()) then
-			return
+			return 0
 		end
 		local meta = minetest.get_meta(pos)
 		local inv = meta:get_inventory()
@@ -1011,7 +984,7 @@ minetest.register_node("default:furnace_active", {
 	end,
 	allow_metadata_inventory_put = function(pos, listname, index, stack, player)
 		if minetest.is_protected(pos, player:get_player_name()) then
-			return
+			return 0
 		end
 		local meta = minetest.get_meta(pos)
 		local inv = meta:get_inventory()
@@ -1032,7 +1005,7 @@ minetest.register_node("default:furnace_active", {
 	end,
 	allow_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
 		if minetest.is_protected(pos, player:get_player_name()) then
-			return
+			return 0
 		end
 		local meta = minetest.get_meta(pos)
 		local inv = meta:get_inventory()
