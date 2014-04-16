@@ -927,7 +927,7 @@ minetest.register_node("default:furnace", {
 			return 0
 		end
 	end,
-	allow_metadata_inventory_take = function(pos, from_list, from_index, to_list, to_index, count, player)
+	allow_metadata_inventory_take = function(pos, listname, index, stack, player)
 		if minetest.is_protected(pos, player:get_player_name()) then
 			return 0
 		end
@@ -1025,7 +1025,7 @@ minetest.register_node("default:furnace_active", {
 			return 0
 		end
 	end,
-	allow_metadata_inventory_take = function(pos, from_list, from_index, to_list, to_index, count, player)
+	allow_metadata_inventory_take = function(pos, listname, index, stack, player)
 		if minetest.is_protected(pos, player:get_player_name()) then
 			return 0
 		end
