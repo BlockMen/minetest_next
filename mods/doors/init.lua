@@ -290,6 +290,41 @@ minetest.register_craft({
 	}
 })
 
+doors:register_door("doors:door_glass", {
+	description = "Glass Door",
+	inventory_image = "door_glass.png",
+	groups = {cracky=3,oddly_breakable_by_hand=3},
+	tiles_bottom = {"door_glass_a.png", "door_blue.png"},
+	tiles_top = {"door_glass_a.png", "door_blue.png"},
+})
+
+minetest.register_craft({
+	output = "doors:door_glass",
+	recipe = {
+		{"default:glass", "default:glass"},
+		{"default:glass", "default:glass"},
+		{"default:glass", "default:glass"}
+	}
+})
+
+doors:register_door("doors:door_obsidian_glass", {
+	description = "Glass Door",
+	inventory_image = "door_obsidian_glass.png",
+	groups = {cracky=3,oddly_breakable_by_hand=3},
+	tiles_bottom = {"door_obsidian_glass_a.png", "door_black.png"},
+	tiles_top = {"door_obsidian_glass_a.png", "door_black.png"},
+})
+
+minetest.register_craft({
+	output = "doors:door_obsidian_glass",
+	recipe = {
+		{"default:obsidian_glass", "default:obsidian_glass"},
+		{"default:obsidian_glass", "default:obsidian_glass"},
+		{"default:obsidian_glass", "default:obsidian_glass"}
+	}
+})
+
+-- Do we need these aliases anymore?
 minetest.register_alias("doors:door_wood_a_c", "doors:door_wood_t_1")
 minetest.register_alias("doors:door_wood_a_o", "doors:door_wood_t_1")
 minetest.register_alias("doors:door_wood_b_c", "doors:door_wood_b_1")
