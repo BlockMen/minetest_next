@@ -215,6 +215,10 @@ minetest.register_abm({
 -- Papyrus and cactus growing
 --
 
+local function get_pseudorandom(pos, seed)
+	return PseudoRandom(math.abs(pos.x+pos.y*3+pos.z*5)+seed)
+end
+
 minetest.register_abm({
 	nodenames = {"default:cactus"},
 	neighbors = {"group:sand"},
@@ -231,6 +235,12 @@ minetest.register_abm({
 				pos.y = pos.y+1
 			end
 			if height < 4 then
+				if height > 2 then
+					local pr = get_pseudorandom(pos, 10)
+					if pr:next(1,2) == 1 then
+						return
+					end
+				end
 				if minetest.get_node(pos).name == "air" then
 					minetest.set_node(pos, {name="default:cactus"})
 				end
@@ -258,6 +268,12 @@ minetest.register_abm({
 				pos.y = pos.y+1
 			end
 			if height < 4 then
+				if height > 2 then
+					local pr = get_pseudorandom(pos, 11)
+					if pr:next(1,2) == 1 then
+						return
+					end
+				end
 				if minetest.get_node(pos).name == "air" then
 					minetest.set_node(pos, {name="default:papyrus"})
 				end
