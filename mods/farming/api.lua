@@ -62,12 +62,15 @@ farming.register_hoe = function(name, def)
 			{"","group:stick",""}
 		}
 	end
+	if def.max_uses == nil then
+		def.max_uses = 30
+	end
 	-- Register the tool
 	minetest.register_tool(name, {
 		description = def.description,
 		inventory_image = def.inventory_image,
 		on_use = function(itemstack, user, pointed_thing)
-			return farming.hoe_on_use(itemstack, user, pointed_thing, 30)
+			return farming.hoe_on_use(itemstack, user, pointed_thing, def.max_uses)
 		end
 	})
 	-- Register its recipe

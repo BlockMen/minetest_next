@@ -1,6 +1,7 @@
 farming.register_hoe(":farming:hoe_wood", {
 	description = "Wooden Hoe",
 	inventory_image = "farming_tool_woodhoe.png",
+	max_uses = 30,
 	recipe = {
 		{"group:wood", "group:wood"},
 		{"", "group:stick"},
@@ -11,6 +12,7 @@ farming.register_hoe(":farming:hoe_wood", {
 farming.register_hoe(":farming:hoe_stone", {
 	description = "Stone Hoe",
 	inventory_image = "farming_tool_stonehoe.png",
+	max_uses = 90,
 	recipe = {
 		{"group:stone", "group:stone"},
 		{"", "group:stick"},
@@ -21,6 +23,7 @@ farming.register_hoe(":farming:hoe_stone", {
 farming.register_hoe(":farming:hoe_steel", {
 	description = "Steel Hoe",
 	inventory_image = "farming_tool_steelhoe.png",
+	max_uses = 200,
 	recipe = {
 		{"default:steel_ingot", "default:steel_ingot"},
 		{"", "group:stick"},
@@ -31,6 +34,7 @@ farming.register_hoe(":farming:hoe_steel", {
 farming.register_hoe(":farming:hoe_bronze", {
 	description = "Bronze Hoe",
 	inventory_image = "farming_tool_bronzehoe.png",
+	max_uses = 220,
 	recipe = {
 		{"default:bronze_ingot", "default:bronze_ingot"},
 		{"", "group:stick"},
