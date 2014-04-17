@@ -155,7 +155,7 @@ farming.register_plant = function(name, def)
 	})
 	-- Register harvest
 	minetest.register_craftitem(":" .. mname .. ":" .. pname, {
-		description = pname,
+		description = pname:gsub("^%l", string.upper),
 		inventory_image = mname .. "_" .. pname .. ".png",
 	})
 	-- Register growing steps

@@ -8,14 +8,13 @@ dofile(farming.path .. "/nodes.lua")
 dofile(farming.path .. "/hoes.lua")
 
 -- WHEAT
-local x = farming.register_plant("farming:wheat", {
+farming.register_plant("farming:wheat", {
 	description = "Wheat seed",
 	inventory_image = "farming_wheat_seed.png",
 	steps = 8,
 	minlight = 13,
 	maxlight = LIGHT_MAX
 })
-print(minetest.serialize(x))
 minetest.register_craftitem("farming:flour", {
 	description = "Flour",
 	inventory_image = "farming_flour.png",
