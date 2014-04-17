@@ -3,7 +3,7 @@ minetest.register_node("farming:soil", {
 	tiles = {"farming_soil.png", "default_dirt.png"},
 	drop = "default:dirt",
 	is_ground_content = true,
-	groups = {crumbly=3, not_in_creative_inventory=1, soil=2},
+	groups = {crumbly=3, not_in_creative_inventory=1, soil=2, grassland = 1},
 	sounds = default.node_sound_dirt_defaults(),
 })
 

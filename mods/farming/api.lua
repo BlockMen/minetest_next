@@ -146,12 +146,43 @@ farming.register_plant = function(name, def)
 		def.maxlight = 14
 	end
 	-- Register seed
-	minetest.register_craftitem(":" .. mname .. ":seed_" .. pname, {
+	--[[minetest.register_craftitem(":" .. mname .. ":seed_" .. pname, {
 		description = def.description,
 		inventory_image = def.inventory_image,
 		on_place = function(itemstack, placer, pointed_thing)
 			return farming.place_seed(itemstack, placer, pointed_thing, mname .. ":" .. pname .. "_1")
 		end,
+	})]]
+	minetest.register_node(":" .. mname .. ":seed_" .. pname, {
+		description = def.description,
+		tiles = {def.inventory_image},
+		inventory_image = def.inventory_image,
+		wield_image = def.inventory_image,
+		drawtype = "nodebox",
+		node_box = {
+			type = "fixed",
+			fixed = {-0.5,-0.5,-0.5,0.5,-0.45,0.5}
+		},
+		groups = {seed = 1, snappy = 3, attached_node = 1},
+		paramtype = "light",
+		walkable = false,
+		sunlight_propagates = true,
+		selection_box = {
+			type = "fixed",
+			fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
+		}
+	})
+	-- Seed -> plant
+	minetest.register_abm({
+		nodenames = {"group:seed"},
+		neighbors = {"group:soil"},
+		interval = 90,
+		chance = 2,
+		action = function(pos, node)
+			if true then
+				minetest.set_node(pos, {name = mname .. ":" .. pname .. "_1"})
+			end
+		end
 	})
 	-- Register harvest
 	minetest.register_craftitem(":" .. mname .. ":" .. pname, {
@@ -191,8 +222,8 @@ farming.register_plant = function(name, def)
 	minetest.register_abm({
 		nodenames = {"group:" .. pname},
 		neighbors = {"group:soil"},
-		interval = 2,
-		chance = 1,
+		interval = 90,
+		chance = 2,
 		action = function(pos, node)
 			-- return if already full grown
 			if minetest.get_item_group(node.name, pname) == def.steps then

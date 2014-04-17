@@ -13,7 +13,7 @@ farming.register_plant("farming:wheat", {
 	inventory_image = "farming_wheat_seed.png",
 	steps = 8,
 	minlight = 13,
-	maxlight = LIGHT_MAX
+	maxlight = LIGHT_MAX,
 })
 minetest.register_craftitem("farming:flour", {
 	description = "Flour",
