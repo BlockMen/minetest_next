@@ -4,11 +4,17 @@ farming.path = minetest.get_modpath("farming")
 
 -- Load files
 dofile(farming.path .. "/api.lua")
-dofile(farming.path .. "/soil.lua")
-dofile(farming.path .. "/grass.lua")
+dofile(farming.path .. "/nodes.lua")
 dofile(farming.path .. "/hoes.lua")
 
---
+farming.register_plant("farming:wheat", {
+	description = "Wheat seed",
+	inventory_image = "farming_wheat_seed.png",
+	steps = 8,
+	minlight = 1,
+	maxlight = 14
+})
+--[[
 -- Wheat
 --
 minetest.register_craftitem("farming:seed_wheat", {
@@ -108,7 +114,7 @@ minetest.register_abm({
 	end
 })
 
---
+--]]
 -- Cotton
 --
 minetest.register_craftitem("farming:seed_cotton", {
