@@ -211,7 +211,7 @@ farming.register_plant = function(name, def)
 			if not minetest.get_node_light(pos) then
 				return
 			end
-			if minetest.get_node_light(pos) < 13 then
+			if minetest.get_node_light(pos) < def.minlight or minetest.get_node_light(pos) > def.maxlight then
 				return
 			end
 			
@@ -220,4 +220,10 @@ farming.register_plant = function(name, def)
 			minetest.set_node(pos, {name = mname .. ":" .. pname .. "_" .. height})
 		end
 	})
+	-- Return
+	local r = {
+		seed = mname .. ":seed_" .. pname,
+		harvest = mname .. ":" .. pname
+	}
+	return r
 end
