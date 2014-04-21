@@ -27,13 +27,19 @@ farming.hoe_on_use = function(itemstack, user, pointed_thing, uses)
 		return
 	end
 	
-	-- check if pointing at dirt
+	-- check if pointing at soil
 	if minetest.get_item_group(under.name, "soil") ~= 1 then
 		return
 	end
 	
+	-- check if (wet) soil defined
+	local regN = minetest.registered_nodes
+	if regN[under.name].soil == nil or regN[under.name].soil.wet == nil or regN[under.name].soil.dry == nil then
+		return
+	end
+	
 	-- turn the node into soil, wear out item and play sound
-	minetest.set_node(pt.under, {name="farming:soil"})
+	minetest.set_node(pt.under, {name = regN[under.name].soil.dry})
 	minetest.sound_play("default_dig_crumbly", {
 		pos = pt.under,
 		gain = 0.5,
@@ -144,6 +150,9 @@ farming.register_plant = function(name, def)
 	end
 	if def.maxlight == nil then
 		def.maxlight = 14
+	end
+	if not def.fertility then
+		def.fertility = {}
 	end
 	-- Register seed
 	--[[minetest.register_craftitem(":" .. mname .. ":seed_" .. pname, {

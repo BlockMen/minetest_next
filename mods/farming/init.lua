@@ -14,6 +14,7 @@ farming.register_plant("farming:wheat", {
 	steps = 8,
 	minlight = 13,
 	maxlight = LIGHT_MAX,
+	fertility = {"grassland", "jungle"}
 })
 minetest.register_craftitem("farming:flour", {
 	description = "Flour",
@@ -45,7 +46,8 @@ farming.register_plant("farming:cotton", {
 	inventory_image = "farming_cotton_seed.png",
 	steps = 8,
 	minlight = 13,
-	maxlight = LIGHT_MAX
+	maxlight = LIGHT_MAX,
+	fertitlity = {"grassland", "jungle", "desert"}
 })
 
 minetest.register_craftitem("farming:string", {
