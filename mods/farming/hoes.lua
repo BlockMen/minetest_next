@@ -41,3 +41,25 @@ farming.register_hoe(":farming:hoe_bronze", {
 		{"", "group:stick"},
 	}
 })
+
+farming.register_hoe(":farming:hoe_mese", {
+	description = "Mese Hoe",
+	inventory_image = "farming_tool_mesehoe.png",
+	max_uses = 350,
+	recipe = {
+		{"default:mese_crystal", "default:mese_crystal"},
+		{"", "group:stick"},
+		{"", "group:stick"},
+	}
+})
+
+farming.register_hoe(":farming:hoe_diamond", {
+	description = "Diamond Hoe",
+	inventory_image = "farming_tool_diamondhoe.png",
+	max_uses = 500,
+	recipe = {
+		{"default:diamond", "default:diamond"},
+		{"", "group:stick"},
+		{"", "group:stick"},
+	}
+})
