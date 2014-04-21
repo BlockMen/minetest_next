@@ -71,7 +71,7 @@ minetest.register_node("farming:desert_sand_soil", {
 	description = "Desert Sand",
 	tiles = {"farming_desert_sand_soil.png", "default_desert_sand.png"},
 	is_ground_content = true,
-	groups = {crumbly=3, falling_node=1, sand=1, soil = 2, desert = 1},
+	groups = {crumbly=3, not_in_creative_inventory = 1, falling_node=1, sand=1, soil = 2, desert = 1},
 	sounds = default.node_sound_sand_defaults(),
 	soil = {
 		base = "default:desert_sand",
