@@ -162,24 +162,38 @@ farming.register_plant = function(name, def)
 			return farming.place_seed(itemstack, placer, pointed_thing, mname .. ":" .. pname .. "_1")
 		end,
 	})]]
+	local g = {seed = 1, snappy = 3, attached_node = 1}
+	for k, v in pairs(def.fertility) do
+		g[v] = 1
+	end
 	minetest.register_node(":" .. mname .. ":seed_" .. pname, {
 		description = def.description,
 		tiles = {def.inventory_image},
 		inventory_image = def.inventory_image,
 		wield_image = def.inventory_image,
-		drawtype = "nodebox",
-		node_box = {
-			type = "fixed",
-			fixed = {-0.5,-0.5,-0.5,0.5,-0.45,0.5}
-		},
-		groups = {seed = 1, snappy = 3, attached_node = 1},
+		drawtype = "signlike",
+		groups = g,
 		paramtype = "light",
+		paramtype2 = "wallmounted",
 		walkable = false,
 		sunlight_propagates = true,
 		selection_box = {
 			type = "fixed",
 			fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
-		}
+		},
+		on_place = function(itemstack, placer, pointed_thing)
+			local pt = pointed_thing
+			-- check if pointing at the top of the node
+			if pt.above.y ~= pt.under.y+1 then
+				return
+			end
+			minetest.add_node(pt.above, {name = mname .. ":seed_" .. pname, param2 = 1})
+			if not minetest.setting_getbool("creative_mode") then
+				itemstack:take_item()
+			end
+			return itemstack
+		end,
+		fertility = def.fertility
 	})
 	-- Seed -> plant
 	minetest.register_abm({
@@ -188,7 +202,24 @@ farming.register_plant = function(name, def)
 		interval = 90,
 		chance = 2,
 		action = function(pos, node)
-			if true then
+			local seedferts = minetest.registered_nodes[node.name].fertility
+			local soilferts = {}
+			-- Collect fertilities of soil
+			for k, v in pairs(minetest.registered_nodes[minetest.get_node({x = pos.x, y = pos.y - 1, z = pos.z}).name].groups) do
+				if k == "grassland" or k == "desert" then
+					soilferts[k] = k
+				end
+			end
+			-- Cannot grow if no fertility match found
+			local fertmatch = false
+			for k, v in pairs(seedferts) do
+				if soilferts[v] ~= nil then
+					fertmatch = true
+					break
+				end
+			end
+			
+			if fertmatch == true and minetest.get_item_group(minetest.get_node({x = pos.x, y = pos.y - 1, z = pos.z}).name, "wet") ~= 0 then
 				minetest.set_node(pos, {name = mname .. ":" .. pname .. "_1"})
 			end
 		end

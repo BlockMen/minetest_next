@@ -21,7 +21,7 @@ minetest.register_node(":default:dirt_with_grass", {
 		footstep = {name="default_grass_footstep", gain=0.25},
 	}),
 	soil = {
-		base = "default:dirt",
+		base = "default:dirt_with_grass",
 		dry = "farming:soil",
 		wet = "farming:soil_wet"
 	}
@@ -109,7 +109,7 @@ minetest.register_abm({
 			return
 		end
 		
-		if minetest.registered_nodes[nn] and minetest.registered_nodes[nn].walkable and minetest.get_item_group(nn, "plant") == 0 then
+		if minetest.registered_nodes[nn] and minetest.registered_nodes[nn].walkable and minetest.get_item_group(nn, "plant") == 0 and node.name ~= node.soil.base then
 			minetest.set_node(pos, {name = node.soil.base})
 		end
 		-- check if there is water nearby
