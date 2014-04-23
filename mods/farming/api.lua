@@ -199,7 +199,7 @@ farming.register_plant = function(name, def)
 	minetest.register_abm({
 		nodenames = {"group:seed"},
 		neighbors = {"group:soil"},
-		interval = 90,
+		interval = 1,
 		chance = 2,
 		action = function(pos, node)
 			local seedferts = minetest.registered_nodes[node.name].fertility
@@ -219,10 +219,8 @@ farming.register_plant = function(name, def)
 				end
 			end
 			
-			print("SOIL " .. minetest.serialize(soilferts))
-			print("SEED " .. minetest.serialize(seedferts))
 			if fertmatch == true and minetest.get_item_group(minetest.get_node({x = pos.x, y = pos.y - 1, z = pos.z}).name, "wet") ~= 0 then
-				minetest.set_node(pos, {name = mname .. ":" .. pname .. "_1"})
+				minetest.set_node(pos, {name = node.name:gsub("seed_", "") .. "_1"})
 			end
 		end
 	})
