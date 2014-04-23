@@ -199,7 +199,7 @@ farming.register_plant = function(name, def)
 	minetest.register_abm({
 		nodenames = {"group:seed"},
 		neighbors = {"group:soil"},
-		interval = 1,
+		interval = 90,
 		chance = 2,
 		action = function(pos, node)
 			local seedferts = minetest.registered_nodes[node.name].fertility
