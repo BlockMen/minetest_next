@@ -97,7 +97,7 @@ minetest.register_node("farming:desert_sand_soil_wet", {
 minetest.register_abm({
 	nodenames = {"group:soil", "group:wet"},
 	interval = 5,
-	chance = 4,
+	chance = 10,
 	action = function(pos, node)
 		pos.y = pos.y+1
 		local nn = minetest.get_node(pos).name
@@ -105,7 +105,7 @@ minetest.register_abm({
 		pos.y = pos.y-1
 		
 		if node.soil == nil or node.soil.wet == nil or node.soil.base == nil or node.soil.dry == nil then
-			minetest.log("error", "Coul not process soil information of node " .. nn)
+			minetest.log("error", "Could not process soil information of node " .. nn)
 			return
 		end
 		
@@ -121,8 +121,8 @@ minetest.register_abm({
 		else
 			-- turn it back into base if it is already dry
 			if minetest.get_item_group(node.name, "wet") == 0 then
-				-- only turn it back if there is no plant on top of it
-				if minetest.get_item_group(nn, "plant") == 0 then
+				-- only turn it back if there is no plant/seed on top of it
+				if minetest.get_item_group(nn, "plant") == 0 and minetest.get_item_group(nn, "seed") == 0 then
 					minetest.set_node(pos, {name = node.soil.base})
 				end
 				

@@ -119,12 +119,12 @@ farming.place_seed = function(itemstack, placer, pointed_thing, plantname)
 	end
 	
 	-- check if pointing at soil
-	if minetest.get_item_group(under.name, "soil") <= 1 then
+	if minetest.get_item_group(under.name, "soil") < 2 then
 		return
 	end
 	
 	-- add the node and remove 1 item from the itemstack
-	minetest.add_node(pt.above, {name=plantname})
+	minetest.add_node(pt.above, {name = plantname, param2 = 1})
 	if not minetest.setting_getbool("creative_mode") then
 		itemstack:take_item()
 	end
@@ -181,19 +181,10 @@ farming.register_plant = function(name, def)
 			type = "fixed",
 			fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
 		},
+		fertility = def.fertility,
 		on_place = function(itemstack, placer, pointed_thing)
-			local pt = pointed_thing
-			-- check if pointing at the top of the node
-			if pt.above.y ~= pt.under.y+1 then
-				return
-			end
-			minetest.add_node(pt.above, {name = mname .. ":seed_" .. pname, param2 = 1})
-			if not minetest.setting_getbool("creative_mode") then
-				itemstack:take_item()
-			end
-			return itemstack
-		end,
-		fertility = def.fertility
+			farming.place_seed(itemstack, placer, pointed_thing, mname .. ":seed_" .. pname)
+		end
 	})
 	-- Seed -> plant
 	minetest.register_abm({
