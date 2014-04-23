@@ -63,7 +63,7 @@ farming.register_hoe = function(name, def)
 	end
 	if def.recipe == nil then
 		def.recipe = {
-			{"air","air","air"},
+			{"air","air",""},
 			{"","group:stick",""},
 			{"","group:stick",""}
 		}
@@ -81,7 +81,7 @@ farming.register_hoe = function(name, def)
 	})
 	-- Register its recipe
 	minetest.register_craft({
-		output = name,
+		output = name:gsub(":", "", 1),
 		recipe = def.recipe
 	})
 end
