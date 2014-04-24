@@ -125,7 +125,9 @@ farming.place_seed = function(itemstack, placer, pointed_thing, plantname)
 	
 	-- add the node and remove 1 item from the itemstack
 	minetest.add_node(pt.above, {name = plantname, param2 = 1})
-	itemstack:take_item()
+	if not minetest.setting_getbool("creative_mode") then
+		itemstack:take_item()
+	end
 	return itemstack
 end
 
@@ -153,13 +155,6 @@ farming.register_plant = function(name, def)
 		def.fertility = {}
 	end
 	-- Register seed
-	--[[minetest.register_craftitem(":" .. mname .. ":seed_" .. pname, {
-		description = def.description,
-		inventory_image = def.inventory_image,
-		on_place = function(itemstack, placer, pointed_thing)
-			return farming.place_seed(itemstack, placer, pointed_thing, mname .. ":" .. pname .. "_1")
-		end,
-	})]]
 	local g = {seed = 1, snappy = 3, attached_node = 1}
 	for k, v in pairs(def.fertility) do
 		g[v] = 1
@@ -181,7 +176,7 @@ farming.register_plant = function(name, def)
 		},
 		fertility = def.fertility,
 		on_place = function(itemstack, placer, pointed_thing)
-			farming.place_seed(itemstack, placer, pointed_thing, mname .. ":seed_" .. pname)
+			return farming.place_seed(itemstack, placer, pointed_thing, mname .. ":seed_" .. pname)
 		end
 	})
 	-- Seed -> plant
