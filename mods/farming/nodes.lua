@@ -1,9 +1,5 @@
-minetest.register_node(":default:dirt", {
-	description = "Dirt",
-	tiles = {"default_dirt.png"},
-	is_ground_content = true,
+minetest.override_item("default:dirt", {
 	groups = {crumbly=3,soil=1},
-	sounds = default.node_sound_dirt_defaults(),
 	soil = {
 		base = "default:dirt",
 		dry = "farming:soil",
@@ -11,15 +7,8 @@ minetest.register_node(":default:dirt", {
 	}
 })
 
-minetest.register_node(":default:dirt_with_grass", {
-	description = "Dirt with Grass",
-	tiles = {"default_grass.png", "default_dirt.png", "default_dirt.png^default_grass_side.png"},
-	is_ground_content = true,
+minetest.override_item("default:dirt_with_grass", {
 	groups = {crumbly=3,soil=1},
-	drop = 'default:dirt',
-	sounds = default.node_sound_dirt_defaults({
-		footstep = {name="default_grass_footstep", gain=0.25},
-	}),
 	soil = {
 		base = "default:dirt_with_grass",
 		dry = "farming:soil",
@@ -55,12 +44,8 @@ minetest.register_node("farming:soil_wet", {
 	}
 })
 
-minetest.register_node(":default:desert_sand", {
-	description = "Desert Sand",
-	tiles = {"default_desert_sand.png"},
-	is_ground_content = true,
+minetest.override_item("default:desert_sand", {
 	groups = {crumbly=3, falling_node=1, sand=1, soil = 1},
-	sounds = default.node_sound_sand_defaults(),
 	soil = {
 		base = "default:desert_sand",
 		dry = "farming:desert_sand_soil",

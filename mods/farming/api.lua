@@ -125,9 +125,7 @@ farming.place_seed = function(itemstack, placer, pointed_thing, plantname)
 	
 	-- add the node and remove 1 item from the itemstack
 	minetest.add_node(pt.above, {name = plantname, param2 = 1})
-	if not minetest.setting_getbool("creative_mode") then
-		itemstack:take_item()
-	end
+	itemstack:take_item()
 	return itemstack
 end
 
