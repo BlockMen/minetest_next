@@ -84,3 +84,26 @@ farming.register_plant(name, Plant definition)
 	minlight = 13, -- Minimum light to grow
 	maxlight = LIGHT_MAX -- Maximum light to grow
 }
+
+Stairs API
+----------
+The stairs API lets you register stairs and slabs and ensures that they are registered the same way as those
+delivered with minetest_game, to keep them compatible with other mods.
+
+stairs.register_stair(subname, recipeitem, groups, images, description, sounds)
+ -> Registers a stair.
+ -> subname: Basically the material name (e.g. cobble) used for the stair name. Nodename pattern: "stairs:stair_subname"
+ -> recipeitem: Item used in the craft recipe, e.g. "default:cobble"
+ -> groups: see [Known damage and digging time defining groups]
+ -> images: see [Tile definition]
+ -> description: used for the description field in the stair's definition
+ -> sounds: see [Sounds]
+ 
+stairs.register_slab(subname, recipeitem, groups, images, description, sounds)
+ -> Registers a slabs
+ -> subname: Basically the material name (e.g. cobble) used for the stair name. Nodename pattern: "stairs:stair_subname"
+ -> recipeitem: Item used in the craft recipe, e.g. "default:cobble"
+ -> groups: see [Known damage and digging time defining groups]
+ -> images: see [Tile definition]
+ -> description: used for the description field in the stair's definition
+ -> sounds: see [Sounds]
