@@ -1,10 +1,10 @@
-minetest_neXt game API
+minetest_game API
 ======================
-GitHub Repo: https://github.com/BlockMen/minetest_neXt
+GitHub Repo: https://github.com/BlockMen/minetest_next
 
 Introduction
 ------------
-The minetest_next gamemode offers multiple new possibilities in addition to Minetest's built-in API, allowing you to
+The minetest_game gamemode offers multiple new possibilities in addition to Minetest's built-in API, allowing you to
 add new plants to farming mod, buckets for new liquids, new stairs and custom panes.
 For information on the Minetest API, visit https://github.com/minetest/minetest/blob/master/doc/lua_api.txt
 Please note:
