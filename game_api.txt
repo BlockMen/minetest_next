@@ -97,7 +97,7 @@ stairs.register_stair(subname, recipeitem, groups, images, description, sounds)
  -> groups: see [Known damage and digging time defining groups]
  -> images: see [Tile definition]
  -> description: used for the description field in the stair's definition
- -> sounds: see [Sounds]
+ -> sounds: see [#Default sounds]
  
 stairs.register_slab(subname, recipeitem, groups, images, description, sounds)
  -> Registers a slabs
@@ -106,7 +106,7 @@ stairs.register_slab(subname, recipeitem, groups, images, description, sounds)
  -> groups: see [Known damage and digging time defining groups]
  -> images: see [Tile definition]
  -> description: used for the description field in the stair's definition
- -> sounds: see [Sounds]
+ -> sounds: see [#Default sounds]
  
 stairs.register_stair_and_slab(subname, recipeitem, groups, images, desc_stair, desc_slab, sounds)
  -> A wrapper for stairs.register_stair and stairs.register_slab
@@ -130,7 +130,7 @@ xpanes.register_pane(subname, def)
 	groups = {group = rating},
 	^ Uses the known node groups, see [Known damage and digging time defining groups]
 	sounds = SoundSpec,
-	^ See [Sounds]
+	^ See [#Default sounds]
 	recipe = {{"","","","","","","","",""}},
 	^ Recipe field only
 	on_construct = function(pos)
@@ -138,3 +138,15 @@ xpanes.register_pane(subname, def)
     end,
 	^ Required to handle rotation correctly
 }
+
+Default sounds
+--------------
+Sounds inside the default table can be used within the sounds field of node definitions.
+
+default.node_sound_defaults()
+default.node_sound_stone_defaults()
+default.node_sound_dirt_defaults()
+default.node_sound_sand_defaults()
+default.node_sound_wood_defaults()
+default.node_sound_leaves_defaults()
+default.node_sound_glass_defaults()
