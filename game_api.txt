@@ -113,3 +113,28 @@ stairs.register_stair_and_slab(subname, recipeitem, groups, images, desc_stair, 
  -> Uses almost the same arguments as stairs.register_stair
  -> desc_stair: Description for stair node
  -> desc_slab: Description for slab node
+ 
+Xpanes API
+----------
+Creates panes that automatically connect to each other
+
+xpanes.register_pane(subname, def)
+ -> subname: used for nodename. Result: "xpanes:subname_{1..16}"
+ -> def: See [#Pane definition]
+
+#Pane definition
+----------------
+{
+	textures = {"texture_Bottom_top", "texture_left_right", "texture_front_back"},
+	^ More tiles aren't supported
+	groups = {group = rating},
+	^ Uses the known node groups, see [Known damage and digging time defining groups]
+	sounds = SoundSpec,
+	^ See [Sounds]
+	recipe = {{"","","","","","","","",""}},
+	^ Recipe field only
+	on_construct = function(pos)
+		update_pane(pos, "pane")
+    end,
+	^ Required to handle rotation correctly
+}
