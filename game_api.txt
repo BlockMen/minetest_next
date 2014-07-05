@@ -107,3 +107,9 @@ stairs.register_slab(subname, recipeitem, groups, images, description, sounds)
  -> images: see [Tile definition]
  -> description: used for the description field in the stair's definition
  -> sounds: see [Sounds]
+ 
+stairs.register_stair_and_slab(subname, recipeitem, groups, images, desc_stair, desc_slab, sounds)
+ -> A wrapper for stairs.register_stair and stairs.register_slab
+ -> Uses almost the same arguments as stairs.register_stair
+ -> desc_stair: Description for stair node
+ -> desc_slab: Description for slab node
