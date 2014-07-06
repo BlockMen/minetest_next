@@ -28,9 +28,7 @@ Created by PilzAdam (License: WTFPL):
   farming_soil_wet_side.png
   farming_string.png
 
-Created by BlockMen (License: CC BY 3.0):
-  farming_tool_diamondhoe.png
-  farming_tool_mesehoe.png
+Created by Calinou (License: CC BY-SA):
   farming_tool_bronzehoe.png
   farming_tool_steelhoe.png
   farming_tool_stonehoe.png
