@@ -59,7 +59,6 @@ VanessaE (WTFPL):
   default_desert_sand.png
   default_desert_stone.png
   default_sand.png
-  default_jungletree_top.png
 
 Calinou (CC BY-SA):
   default_brick.png
@@ -117,7 +116,6 @@ paramat (CC BY-SA 3.0):
   default_dry_grass.png
   default_dry_grass_side.png
   default_dry_grass_*.png
-  default_junglewood.png, derived from a texture by BlockMen (CC BY-SA 3.0)
   default_grass.png, derived from a texture by Philipbenr (CC BY-SA 3.0)
   default_grass_side.png, derived from a texture by Philipbenr (CC BY-SA 3.0)
   default_stone_brick.png, derived from a texture by Cisoun (WTFPL)
@@ -133,6 +131,7 @@ BlockMen (CC BY-SA 3.0):
   default_gold_ingot.png
   default_tool_steelsword.png
   default_diamond.png
+  default_diamond_block.png
   default_book.png
   default_tool_*.png
   default_lava_source_animated.png
@@ -142,6 +141,7 @@ BlockMen (CC BY-SA 3.0):
   default_chest_lock.png
   default_chest_side.png
   default_chest_top.png
+  default_jungletree_top.png, base on Texture of Cisoun (WTFPL)
   default_mineral_mese.png
   default_meselamp.png
   bubble.png
