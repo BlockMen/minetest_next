@@ -35,14 +35,22 @@ default.gui_survival_form = "size[8,8.5]"..
 			default.get_hotbar_bg(0,4.25)
 
 -- Load files
-dofile(minetest.get_modpath("default").."/functions.lua")
-dofile(minetest.get_modpath("default").."/nodes.lua")
-dofile(minetest.get_modpath("default").."/furnace.lua")
-dofile(minetest.get_modpath("default").."/tools.lua")
-dofile(minetest.get_modpath("default").."/craftitems.lua")
-dofile(minetest.get_modpath("default").."/crafting.lua")
-dofile(minetest.get_modpath("default").."/mapgen.lua")
-dofile(minetest.get_modpath("default").."/player.lua")
-dofile(minetest.get_modpath("default").."/trees.lua")
-dofile(minetest.get_modpath("default").."/aliases.lua")
-dofile(minetest.get_modpath("default").."/legacy.lua")
+local modpath = minetest.get_modpath("default")
+local mg_name = minetest.get_mapgen_params().mgname or ""
+
+dofile(modpath .. "/functions.lua")
+dofile(modpath .. "/nodes.lua")
+dofile(modpath .. "/furnace.lua")
+dofile(modpath .. "/tools.lua")
+dofile(modpath .. "/craftitems.lua")
+dofile(modpath .. "/crafting.lua")
+dofile(modpath .. "/mapgen.lua")
+if mg_name == "v6" then
+	dofile(modpath .. "/mapgenv6.lua")
+elseif mg_name == "v5" or mg_name == "v7" then
+	dofile(modpath .. "/mapgenv57.lua")
+end
+dofile(modpath .. "/player.lua")
+dofile(modpath .. "/trees.lua")
+dofile(modpath .. "/aliases.lua")
+dofile(modpath .. "/legacy.lua")
