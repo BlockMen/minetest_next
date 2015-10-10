@@ -63,7 +63,7 @@ Calinou (CC BY-SA):
   default_mineral_copper.png
   default_glass_detail.png
 
-MirceaKitsune (WTFPL):
+stujones11/ExeterDad (WTFPL):
   character.b3d
 
 Jordach (CC BY-SA 3.0):
