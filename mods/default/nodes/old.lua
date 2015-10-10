@@ -55,51 +55,25 @@ default:ice
 
 Trees
 -----
-(1. Trunk 2. Fabricated trunk 3. Leaves 4. Sapling [5. Fruits])
+(1. Trunk 2. Fabricated trunk 4. Sapling [5. Fruits])
 
 default:tree
 default:wood
-default:leaves
 default:sapling
 default:apple
 
 default:jungletree
 default:junglewood
-default:jungleleaves
 default:junglesapling
 
 default:pine_tree
 default:pine_wood
-default:pine_needles
 default:pine_sapling
 
 default:acacia_tree
 default:acacia_wood
-default:acacia_leaves
 default:acacia_sapling
 
-Ores
-----
-(1. In stone 2. Block)
-
-default:stone_with_coal
-default:coalblock
-
-default:stone_with_iron
-default:steelblock
-
-default:stone_with_copper
-default:copperblock
-default:bronzeblock
-
-default:stone_with_gold
-default:goldblock
-
-default:stone_with_mese
-default:mese
-
-default:stone_with_diamond
-default:diamondblock
 
 Plantlife (non-cubic)
 ---------------------
@@ -441,35 +415,6 @@ minetest.register_node("default:sapling", {
 	sounds = default.node_sound_leaves_defaults(),
 })
 
-minetest.register_node("default:leaves", {
-	description = "Leaves",
-	drawtype = "allfaces_optional",
-	waving = 1,
-	visual_scale = 1.3,
-	tiles = {"default_leaves.png"},
-	special_tiles = {"default_leaves_simple.png"},
-	paramtype = "light",
-	is_ground_content = false,
-	groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1},
-	drop = {
-		max_items = 1,
-		items = {
-			{
-				-- player will get sapling with 1/20 chance
-				items = {'default:sapling'},
-				rarity = 20,
-			},
-			{
-				-- player will get leaves only if he get no saplings,
-				-- this is because max_items is 1
-				items = {'default:leaves'},
-			}
-		}
-	},
-	sounds = default.node_sound_leaves_defaults(),
-
-	after_place_node = default.after_place_leaves,
-})
 
 minetest.register_node("default:apple", {
 	description = "Apple",
@@ -518,27 +463,6 @@ minetest.register_node("default:junglewood", {
 	sounds = default.node_sound_wood_defaults(),
 })
 
-minetest.register_node("default:jungleleaves", {
-	description = "Jungle Leaves",
-	drawtype = "allfaces_optional",
-	waving = 1,
-	visual_scale = 1.3,
-	tiles = {"default_jungleleaves.png"},
-	special_tiles = {"default_jungleleaves_simple.png"},
-	paramtype = "light",
-	is_ground_content = false,
-	groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1},
-	drop = {
-		max_items = 1,
-		items = {
-			{items = {'default:junglesapling'}, rarity = 20},
-			{items = {'default:jungleleaves'}}
-		}
-	},
-	sounds = default.node_sound_leaves_defaults(),
-
-	after_place_node = default.after_place_leaves,
-})
 
 minetest.register_node("default:junglesapling", {
 	description = "Jungle Sapling",
@@ -580,26 +504,6 @@ minetest.register_node("default:pine_wood", {
 	sounds = default.node_sound_wood_defaults(),
 })
 
-minetest.register_node("default:pine_needles",{
-	description = "Pine Needles",
-	drawtype = "allfaces_optional",
-	visual_scale = 1.3,
-	tiles = {"default_pine_needles.png"},
-	waving = 1,
-	paramtype = "light",
-	is_ground_content = false,
-	groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1},
-	drop = {
-		max_items = 1,
-		items = {
-			{items = {"default:pine_sapling"}, rarity = 20},
-			{items = {"default:pine_needles"}}
-		}
-	},
-	sounds = default.node_sound_leaves_defaults(),
-
-	after_place_node = default.after_place_leaves,
-})
 
 minetest.register_node("default:pine_sapling", {
 	description = "Pine Sapling",
@@ -641,26 +545,6 @@ minetest.register_node("default:acacia_wood", {
 	sounds = default.node_sound_wood_defaults(),
 })
 
-minetest.register_node("default:acacia_leaves", {
-	description = "Acacia Leaves",
-	drawtype = "allfaces_optional",
-	visual_scale = 1.3,
-	tiles = {"default_acacia_leaves.png"},
-	waving = 1,
-	paramtype = "light",
-	is_ground_content = false,
-	groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1},
-	drop = {
-		max_items = 1,
-		items = {
-			{items = {"default:acacia_sapling"}, rarity = 20},
-			{items = {"default:acacia_leaves"}}
-		}
-	},
-	sounds = default.node_sound_leaves_defaults(),
-
-	after_place_node = default.after_place_leaves,
-})
 
 minetest.register_node("default:acacia_sapling", {
 	description = "Acacia Tree Sapling",
@@ -681,121 +565,6 @@ minetest.register_node("default:acacia_sapling", {
 	sounds = default.node_sound_leaves_defaults(),
 })
 
---
--- Ores
---
-
-minetest.register_node("default:stone_with_coal", {
-	description = "Coal Ore",
-	tiles = {"default_stone.png^default_mineral_coal.png"},
-	groups = {cracky = 3},
-	drop = 'default:coal_lump',
-	sounds = default.node_sound_stone_defaults(),
-})
-
-minetest.register_node("default:coalblock", {
-	description = "Coal Block",
-	tiles = {"default_coal_block.png"},
-	is_ground_content = false,
-	groups = {cracky = 3},
-	sounds = default.node_sound_stone_defaults(),
-})
-
-
-minetest.register_node("default:stone_with_iron", {
-	description = "Iron Ore",
-	tiles = {"default_stone.png^default_mineral_iron.png"},
-	groups = {cracky = 2},
-	drop = 'default:iron_lump',
-	sounds = default.node_sound_stone_defaults(),
-})
-
-minetest.register_node("default:steelblock", {
-	description = "Steel Block",
-	tiles = {"default_steel_block.png"},
-	is_ground_content = false,
-	groups = {cracky = 1, level = 2},
-	sounds = default.node_sound_stone_defaults(),
-})
-
-
-minetest.register_node("default:stone_with_copper", {
-	description = "Copper Ore",
-	tiles = {"default_stone.png^default_mineral_copper.png"},
-	groups = {cracky = 2},
-	drop = 'default:copper_lump',
-	sounds = default.node_sound_stone_defaults(),
-})
-
-minetest.register_node("default:copperblock", {
-	description = "Copper Block",
-	tiles = {"default_copper_block.png"},
-	is_ground_content = false,
-	groups = {cracky = 1, level = 2},
-	sounds = default.node_sound_stone_defaults(),
-})
-
-minetest.register_node("default:bronzeblock", {
-	description = "Bronze Block",
-	tiles = {"default_bronze_block.png"},
-	is_ground_content = false,
-	groups = {cracky = 1, level = 2},
-	sounds = default.node_sound_stone_defaults(),
-})
-
-
-minetest.register_node("default:stone_with_mese", {
-	description = "Mese Ore",
-	tiles = {"default_stone.png^default_mineral_mese.png"},
-	paramtype = "light",
-	groups = {cracky = 1},
-	drop = "default:mese_crystal",
-	sounds = default.node_sound_stone_defaults(),
-	light_source = 1,
-})
-
-minetest.register_node("default:mese", {
-	description = "Mese Block",
-	tiles = {"default_mese_block.png"},
-	paramtype = "light",
-	groups = {cracky = 1, level = 2},
-	sounds = default.node_sound_stone_defaults(),
-	light_source = 3,
-})
-
-
-minetest.register_node("default:stone_with_gold", {
-	description = "Gold Ore",
-	tiles = {"default_stone.png^default_mineral_gold.png"},
-	groups = {cracky = 2},
-	drop = "default:gold_lump",
-	sounds = default.node_sound_stone_defaults(),
-})
-
-minetest.register_node("default:goldblock", {
-	description = "Gold Block",
-	tiles = {"default_gold_block.png"},
-	is_ground_content = false,
-	groups = {cracky = 1},
-	sounds = default.node_sound_stone_defaults(),
-})
-
-
-minetest.register_node("default:stone_with_diamond", {
-	description = "Diamond Ore",
-	tiles = {"default_stone.png^default_mineral_diamond.png"},
-	groups = {cracky = 1},
-	drop = "default:diamond",
-	sounds = default.node_sound_stone_defaults(),
-})
-
-minetest.register_node("default:diamondblock", {
-	description = "Diamond Block",
-	tiles = {"default_diamond_block.png"},
-	is_ground_content = false,
-	groups = {cracky = 1, level = 3},
-	sounds = default.node_sound_stone_defaults(),
-})
 
 --
 -- Plantlife (non-cubic)
@@ -1173,225 +942,9 @@ minetest.register_node("default:lava_flowing", {
 -- Tools / "Advanced" crafting / Non-"natural"
 --
 
-local chest_formspec =
-	"size[8,9]" ..
-	default.gui_bg ..
-	default.gui_bg_img ..
-	default.gui_slots ..
-	"list[current_name;main;0,0.3;8,4;]" ..
-	"list[current_player;main;0,4.85;8,1;]" ..
-	"list[current_player;main;0,6.08;8,3;8]" ..
-	"listring[current_name;main]" ..
-	"listring[current_player;main]" ..
-	default.get_hotbar_bg(0,4.85)
-
-local function get_locked_chest_formspec(pos)
-	local spos = pos.x .. "," .. pos.y .. "," .. pos.z
-	local formspec =
-		"size[8,9]" ..
-		default.gui_bg ..
-		default.gui_bg_img ..
-		default.gui_slots ..
-		"list[nodemeta:" .. spos .. ";main;0,0.3;8,4;]" ..
-		"list[current_player;main;0,4.85;8,1;]" ..
-		"list[current_player;main;0,6.08;8,3;8]" ..
-		"listring[nodemeta:" .. spos .. ";main]" ..
-		"listring[current_player;main]" ..
-		default.get_hotbar_bg(0,4.85)
- return formspec
-end
-
-local function has_locked_chest_privilege(meta, player)
-	if player:get_player_name() ~= meta:get_string("owner") then
-		return false
-	end
-	return true
-end
-
-minetest.register_node("default:chest", {
-	description = "Chest",
-	tiles = {"default_chest_top.png", "default_chest_top.png", "default_chest_side.png",
-		"default_chest_side.png", "default_chest_side.png", "default_chest_front.png"},
-	paramtype2 = "facedir",
-	groups = {choppy = 2, oddly_breakable_by_hand = 2},
-	legacy_facedir_simple = true,
-	is_ground_content = false,
-	sounds = default.node_sound_wood_defaults(),
-
-	on_construct = function(pos)
-		local meta = minetest.get_meta(pos)
-		meta:set_string("formspec", chest_formspec)
-		meta:set_string("infotext", "Chest")
-		local inv = meta:get_inventory()
-		inv:set_size("main", 8*4)
-	end,
-	can_dig = function(pos,player)
-		local meta = minetest.get_meta(pos);
-		local inv = meta:get_inventory()
-		return inv:is_empty("main")
-	end,
-	on_metadata_inventory_move = function(pos, from_list, from_index,
-			to_list, to_index, count, player)
-		minetest.log("action", player:get_player_name() ..
-			" moves stuff in chest at " .. minetest.pos_to_string(pos))
-	end,
-    on_metadata_inventory_put = function(pos, listname, index, stack, player)
-		minetest.log("action", player:get_player_name() ..
-			" moves stuff to chest at " .. minetest.pos_to_string(pos))
-	end,
-    on_metadata_inventory_take = function(pos, listname, index, stack, player)
-		minetest.log("action", player:get_player_name() ..
-			" takes stuff from chest at " .. minetest.pos_to_string(pos))
-	end,
-})
-
-minetest.register_node("default:chest_locked", {
-	description = "Locked Chest",
-	tiles = {"default_chest_top.png", "default_chest_top.png", "default_chest_side.png",
-		"default_chest_side.png", "default_chest_side.png", "default_chest_lock.png"},
-	paramtype2 = "facedir",
-	groups = {choppy = 2, oddly_breakable_by_hand = 2},
-	legacy_facedir_simple = true,
-	is_ground_content = false,
-	sounds = default.node_sound_wood_defaults(),
-
-	after_place_node = function(pos, placer)
-		local meta = minetest.get_meta(pos)
-		meta:set_string("owner", placer:get_player_name() or "")
-		meta:set_string("infotext", "Locked Chest (owned by " ..
-				meta:get_string("owner") .. ")")
-	end,
-	on_construct = function(pos)
-		local meta = minetest.get_meta(pos)
-		meta:set_string("infotext", "Locked Chest")
-		meta:set_string("owner", "")
-		local inv = meta:get_inventory()
-		inv:set_size("main", 8 * 4)
-	end,
-	can_dig = function(pos,player)
-		local meta = minetest.get_meta(pos);
-		local inv = meta:get_inventory()
-		return inv:is_empty("main") and has_locked_chest_privilege(meta, player)
-	end,
-	allow_metadata_inventory_move = function(pos, from_list, from_index,
-			to_list, to_index, count, player)
-		local meta = minetest.get_meta(pos)
-		if not has_locked_chest_privilege(meta, player) then
-			return 0
-		end
-		return count
-	end,
-    allow_metadata_inventory_put = function(pos, listname, index, stack, player)
-		local meta = minetest.get_meta(pos)
-		if not has_locked_chest_privilege(meta, player) then
-			return 0
-		end
-		return stack:get_count()
-	end,
-    allow_metadata_inventory_take = function(pos, listname, index, stack, player)
-		local meta = minetest.get_meta(pos)
-		if not has_locked_chest_privilege(meta, player) then
-			return 0
-		end
-		return stack:get_count()
-	end,
-    on_metadata_inventory_put = function(pos, listname, index, stack, player)
-		minetest.log("action", player:get_player_name() ..
-			" moves stuff to locked chest at " .. minetest.pos_to_string(pos))
-	end,
-    on_metadata_inventory_take = function(pos, listname, index, stack, player)
-		minetest.log("action", player:get_player_name() ..
-			" takes stuff from locked chest at " .. minetest.pos_to_string(pos))
-	end,
-	on_rightclick = function(pos, node, clicker)
-		local meta = minetest.get_meta(pos)
-		if has_locked_chest_privilege(meta, clicker) then
-			minetest.show_formspec(
-				clicker:get_player_name(),
-				"default:chest_locked",
-				get_locked_chest_formspec(pos)
-			)
-		end
-	end,
-	on_blast = function() end,
-})
 
 
-local bookshelf_formspec =
-	"size[8,7;]" ..
-	default.gui_bg ..
-	default.gui_bg_img ..
-	default.gui_slots ..
-	"list[context;books;0,0.3;8,2;]" ..
-	"list[current_player;main;0,2.85;8,1;]" ..
-	"list[current_player;main;0,4.08;8,3;8]" ..
-	"listring[context;books]" ..
-	"listring[current_player;main]" ..
-	default.get_hotbar_bg(0,2.85)
 
-minetest.register_node("default:bookshelf", {
-	description = "Bookshelf",
-	tiles = {"default_wood.png", "default_wood.png", "default_bookshelf.png"},
-	is_ground_content = false,
-	groups = {choppy = 3, oddly_breakable_by_hand = 2, flammable = 3},
-	sounds = default.node_sound_wood_defaults(),
-
-	on_construct = function(pos)
-		local meta = minetest.get_meta(pos)
-		meta:set_string("formspec", bookshelf_formspec)
-		local inv = meta:get_inventory()
-		inv:set_size("books", 8 * 2)
-	end,
-	can_dig = function(pos,player)
-		local meta = minetest.get_meta(pos);
-		local inv = meta:get_inventory()
-		return inv:is_empty("books")
-	end,
-
-	allow_metadata_inventory_put = function(pos, listname, index, stack, player)
-		local meta = minetest.get_meta(pos)
-		local inv = meta:get_inventory()
-		local to_stack = inv:get_stack(listname, index)
-		if listname == "books" then
-			if minetest.get_item_group(stack:get_name(), "book") ~= 0
-					and to_stack:is_empty() then
-				return 1
-			else
-				return 0
-			end
-		end
-	end,
-
-	allow_metadata_inventory_move = function(pos, from_list, from_index,
-			to_list, to_index, count, player)
-		local meta = minetest.get_meta(pos)
-		local inv = meta:get_inventory()
-		local stack = inv:get_stack(from_list, from_index)
-		local to_stack = inv:get_stack(to_list, to_index)
-		if to_list == "books" then
-			if minetest.get_item_group(stack:get_name(), "book") ~= 0
-					and to_stack:is_empty() then
-				return 1
-			else
-				return 0
-			end
-		end
-	end,
-
-	on_metadata_inventory_move = function(pos, from_list, from_index,
-			to_list, to_index, count, player)
-		minetest.log("action", player:get_player_name() ..
-			" moves stuff in bookshelf at " .. minetest.pos_to_string(pos))
-	end,
-	on_metadata_inventory_put = function(pos, listname, index, stack, player)
-		minetest.log("action", player:get_player_name() ..
-			" moves stuff to bookshelf at " .. minetest.pos_to_string(pos))
-	end,
-	on_metadata_inventory_take = function(pos, listname, index, stack, player)
-		minetest.log("action", player:get_player_name() ..
-			" takes stuff from bookshelf at " .. minetest.pos_to_string(pos))
-	end,
-})
 
 
 minetest.register_node("default:sign_wall", {

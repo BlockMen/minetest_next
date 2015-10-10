@@ -1,8 +1,4 @@
-
---
 -- Formspecs
---
-
 local function active_formspec(fuel_percent, item_percent)
 	local formspec = 
 		"size[8,8.5]"..
@@ -44,9 +40,8 @@ local inactive_formspec =
 	"listring[current_player;main]"..
 	default.get_hotbar_bg(0, 4.25)
 
---
+
 -- Node callback functions that are the same for active and inactive furnace
---
 
 local function can_dig(pos, player)
 	local meta = minetest.get_meta(pos);
@@ -90,9 +85,8 @@ local function allow_metadata_inventory_take(pos, listname, index, stack, player
 	return stack:get_count()
 end
 
---
+
 -- Node definitions
---
 
 minetest.register_node("default:furnace", {
 	description = "Furnace",
@@ -146,9 +140,8 @@ minetest.register_node("default:furnace_active", {
 	allow_metadata_inventory_take = allow_metadata_inventory_take,
 })
 
---
+
 -- ABM
---
 
 local function swap_node(pos, name)
 	local node = minetest.get_node(pos)
