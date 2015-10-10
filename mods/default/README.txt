@@ -1,28 +1,29 @@
-Minetest Game mod: default
-==========================
+This mod is part of Minetest NeXt
+==================================
 
 License of source code:
 -----------------------
 Copyright (C) 2011-2012 celeron55, Perttu Ahola <celeron55@gmail.com>
 
-This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU Lesser General Public License as published by
-the Free Software Foundation; either version 2.1 of the License, or
-(at your option) any later version.
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+at your option) any later version.
 
-http://www.gnu.org/licenses/lgpl-2.1.html
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
 
-License of media (textures and sounds)
---------------------------------------
-Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
-http://creativecommons.org/licenses/by-sa/3.0/
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-Authors of media files
------------------------
-Everything not listed in here:
-Copyright (C) 2010-2012 celeron55, Perttu Ahola <celeron55@gmail.com>
 
-Cisoun's WTFPL texture pack:
+License of media (textures, sounds, meshes):
+--------------------------------------------
+(by Authors)
+
+Cisoun (WTFPL):
   default_jungletree.png
   default_lava.png
   default_leaves.png
@@ -32,26 +33,18 @@ Cisoun's WTFPL texture pack:
   default_tree.png
   default_tree_top.png
   default_water.png
-
-Cisoun's conifers mod (WTFPL):
   default_pine_needles.png
 
-Originating from G4JC's Almost MC Texture Pack:
+Gaming4JC (CC BY-SA 3.0):
   default_torch.png
   default_torch_on_ceiling.png
   default_torch_on_floor.png
 
-VanessaE's animated torches (WTFPL):
+VanessaE (WTFPL):
   default_torch_animated.png
   default_torch_on_ceiling_animated.png
   default_torch_on_floor_animated.png
   default_torch_on_floor.png
-
-RealBadAngel's animated water (WTFPL):
-  default_water_source_animated.png
-  default_water_flowing_animated.png
-
-VanessaE (WTFPL):
   default_nc_back.png
   default_nc_front.png
   default_nc_rb.png
@@ -60,6 +53,10 @@ VanessaE (WTFPL):
   default_desert_stone.png
   default_sand.png
 
+RealBadAngel (WTFPL):
+  default_water_source_animated.png
+  default_water_flowing_animated.png
+
 Calinou (CC BY-SA):
   default_brick.png
   default_papyrus.png
@@ -67,7 +64,7 @@ Calinou (CC BY-SA):
   default_glass_detail.png
 
 MirceaKitsune (WTFPL):
-  character.x
+  character.b3d
 
 Jordach (CC BY-SA 3.0):
   character.png
@@ -170,12 +167,16 @@ Gambit (WTFPL):
 asl97 (WTFPL):
   default_ice.png
 
-Glass breaking sounds (CC BY 3.0):
-  1: http://www.freesound.org/people/cmusounddesign/sounds/71947/
-  2: http://www.freesound.org/people/Tomlija/sounds/97669/
-  3: http://www.freesound.org/people/lsprice/sounds/88808/
+cmusounddesign (CC BY-SA 3.0):
+  default_break_glass.1.ogg (http://www.freesound.org)
 
-Mito551 (sounds) (CC BY-SA):
+Tomlija (CC BY-SA 3.0):
+  default_break_glass.2.ogg (http://www.freesound.org)
+
+lsprice (CC BY-SA 3.0):
+  default_break_glass.3.ogg (http://www.freesound.org)
+
+Mito551 (CC BY-SA):
   default_dig_choppy.ogg
   default_dig_cracky.ogg
   default_dig_crumbly.1.ogg

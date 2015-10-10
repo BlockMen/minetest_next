@@ -1,34 +1,36 @@
-Minetest Game mod: farming
-==========================
+MThis mod is part of Minetest NeXt
+=================================
 
 License of source code:
 -----------------------
 Copyright (C) 2014 webdesigner97
 
-            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
-                    Version 2, December 2004
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+at your option) any later version.
 
- Copyright (C) 2004 Sam Hocevar <sam@hocevar.net>
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
 
- Everyone is permitted to copy and distribute verbatim or modified
- copies of this license document, and changing it is allowed as long
- as the name is changed.
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
-   TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
 
-  0. You just DO WHAT THE FUCK YOU WANT TO. 
+License of media (textures, sounds, meshes):
+--------------------------------------------
+(by Authors)
 
-License of media (textures):
-----------------------------
-Created by PilzAdam (License: WTFPL):
+PilzAdam (WTFPL):
   farming_bread.png
   farming_soil.png
   farming_soil_wet.png
   farming_soil_wet_side.png
   farming_string.png
 
-Created by BlockMen (License: CC BY 3.0):
+BlockMen (CC BY-SA 3.0):
   farming_tool_diamondhoe.png
   farming_tool_mesehoe.png
   farming_tool_bronzehoe.png
@@ -36,10 +38,10 @@ Created by BlockMen (License: CC BY 3.0):
   farming_tool_stonehoe.png
   farming_tool_woodhoe.png
 
-Created by MasterGollum (License: WTFPL):
+MasterGollum (WTFPL):
   farming_straw.png
 
-Created by Gambit (License: WTFPL):
+Gambit (WTFPL):
   farming_wheat.png
   farming_wheat_*.png
   farming_cotton_*.png

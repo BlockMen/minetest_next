@@ -1,28 +1,27 @@
-Minetest Game mod: wool
-=======================
-
-Mostly backward-compatible with jordach's 16-color wool mod.
+This mod is part of Minetest NeXt
+==================================
 
 License of source code:
 -----------------------
-Copyright (C) 2012 Perttu Ahola (celeron55) <celeron55@gmail.com>
+Copyright (C) 2012 celeron55, Perttu Ahola <celeron55@gmail.com>
 
-This program is free software. It comes without any warranty, to
-the extent permitted by applicable law. You can redistribute it
-and/or modify it under the terms of the Do What The Fuck You Want
-To Public License, Version 2, as published by Sam Hocevar. See
-http://sam.zoy.org/wtfpl/COPYING for more details.
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+at your option) any later version.
 
-License of media (textures and sounds)
---------------------------------------
-Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
-http://creativecommons.org/licenses/by-sa/3.0/
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
 
-Authors of media files
------------------------
-Cisoun:
-- wool_black.png wool_brown.png wool_dark_green.png wool_green.png
-- wool_magenta.png wool_pink.png wool_violet.png wool_yellow.png wool_blue.png
-- wool_cyan.png wool_dark_grey.png wool_grey.png wool_orange.png wool_red.png
-- wool_white.png
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+
+License of media (textures, sounds, meshes):
+--------------------------------------------
+(by Authors)
+
+Cisoun (CC-BY-SA 3.0):
+   wool_*.png
