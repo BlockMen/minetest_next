@@ -41,7 +41,28 @@ local inactive_formspec =
 	default.get_hotbar_bg(0, 4.25)
 
 
--- Node callback functions that are the same for active and inactive furnace
+-- Helper functions
+
+function default.get_item_burntime(itemstack)
+	local fuel, afterfuel = minetest.get_craft_result({
+		method = "fuel",
+		width = 1,
+		items = {itemstack}
+	})
+	if fuel and fuel.time > 0 then
+		return fuel, afterfuel
+	else
+		fuel = {}
+		fuel.time = minetest.get_item_group(itemstack:get_name(), "fuel")
+		return fuel, {
+			items = {
+				itemstack:peek_item(itemstack:get_count() - 1)
+			},
+			method = "fuel",
+			width = 1
+		}
+	end
+end
 
 local function can_dig(pos, player)
 	local meta = minetest.get_meta(pos);
@@ -56,7 +77,7 @@ local function allow_metadata_inventory_put(pos, listname, index, stack, player)
 	local meta = minetest.get_meta(pos)
 	local inv = meta:get_inventory()
 	if listname == "fuel" then
-		if minetest.get_craft_result({method="fuel", width=1, items={stack}}).time ~= 0 then
+		if default.get_item_burntime(stack) ~= 0 then
 			if inv:is_empty("src") then
 				meta:set_string("infotext", "Furnace is empty")
 			end
@@ -215,7 +236,7 @@ minetest.register_abm({
 			-- Furnace ran out of fuel
 			if cookable then
 				-- We need to get new fuel
-				local fuel, afterfuel = minetest.get_craft_result({method = "fuel", width = 1, items = fuellist})
+				local fuel, afterfuel = default.get_item_burntime(fuellist[1])
 				
 				if fuel.time == 0 then
 					-- No valid fuel in fuel list
