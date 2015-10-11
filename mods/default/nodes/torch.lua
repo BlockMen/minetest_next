@@ -4,6 +4,7 @@ minetest.register_craftitem("default:torch", {
 	wield_image = "default_torch.png",
 	wield_scale = {x = 1, y = 1, z = 1 + 1/16},
 	liquids_pointable = false,
+	groups = {fuel = 3},
    	on_place = function(itemstack, placer, pointed_thing)
 		local above = pointed_thing.above
 		local under = pointed_thing.under

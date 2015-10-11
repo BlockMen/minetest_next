@@ -15,7 +15,7 @@ minetest.register_node("default:sign_wall", {
 		wall_bottom = {-0.4375, -0.5, -0.3125, 0.4375, -0.4375, 0.3125},
 		wall_side   = {-0.5, -0.3125, -0.4375, -0.4375, 0.3125, 0.4375},
 	},
-	groups = {choppy = 2, dig_immediate = 2, attached_node = 1},
+	groups = {choppy = 2, dig_immediate = 2, attached_node = 1, fuel = 2},
 	legacy_wallmounted = true,
 	sounds = default.node_sound_defaults(),
 

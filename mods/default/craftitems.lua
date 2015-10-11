@@ -3,12 +3,13 @@
 minetest.register_craftitem("default:stick", {
 	description = "Stick",
 	inventory_image = "default_stick.png",
-	groups = {stick=1},
+	groups = {stick=1,fuel=1},
 })
 
 minetest.register_craftitem("default:paper", {
 	description = "Paper",
 	inventory_image = "default_paper.png",
+	groups = {fuel=1},
 })
 
 local function book_on_use(itemstack, user, pointed_thing)
@@ -75,14 +76,14 @@ end)
 minetest.register_craftitem("default:book", {
 	description = "Book",
 	inventory_image = "default_book.png",
-	groups = {book=1},
+	groups = {book=1,fuel=2},
 	on_use = book_on_use,
 })
 
 minetest.register_craftitem("default:book_written", {
 	description = "Book With Text",
 	inventory_image = "default_book.png",
-	groups = {book=1, not_in_creative_inventory=1},
+	groups = {book=1, not_in_creative_inventory=1, fuel=2},
 	stack_max = 1,
 	on_use = book_on_use,
 })
@@ -90,7 +91,7 @@ minetest.register_craftitem("default:book_written", {
 minetest.register_craftitem("default:coal_lump", {
 	description = "Coal Lump",
 	inventory_image = "default_coal_lump.png",
-	groups = {coal = 1}
+	groups = {coal = 1, fuel = 40}
 })
 
 minetest.register_craftitem("default:iron_lump", {
