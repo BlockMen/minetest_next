@@ -71,7 +71,7 @@ function default.player_set_model(player, model_name)
 	player_model[name] = model_name
 end
 
-function default.player_set_armor(player, texture)
+function default.player_set_armor_texture(player, texture)
 	local name = player:get_player_name()
 	player_textures[name][2] = texture
 	player:set_properties({textures = player_textures[name]})

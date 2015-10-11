@@ -312,36 +312,18 @@ minetest.register_abm({
 	action = tnt.burn,
 })
 
-minetest.register_craft({
-	output = "tnt:gunpowder",
-	type = "shapeless",
-	recipe = {"default:coal_lump", "default:gravel"}
-})
-
-minetest.register_craft({
-	output = "tnt:tnt",
-	recipe = {
-		{"",           "group:wood",    ""},
-		{"group:wood", "tnt:gunpowder", "group:wood"},
-		{"",           "group:wood",    ""}
-	}
-})
-
-function tnt.register_tnt(def)
-	local name = ""
-	if not def.name:find(':') then
-		name = "tnt:" .. def.name
-	else
-		name = def.name
-		def.name = def.name:sub(def.name:find(':') + 1)
+function tnt.register_tnt(name, def)
+	if not def or not name then
+		return false
 	end
+
 	if not def.tiles then
 		def.tiles = {}
 	end
-	local tnt_top = def.tiles.top or def.name .. "_top.png"
-	local tnt_bottom = def.tiles.bottom or def.name .. "_bottom.png"
-	local tnt_side = def.tiles.side or def.name .. "_side.png"
-	local tnt_burning = def.tiles.burning or def.name .. "_top_burning_animated.png"
+	local tnt_top = def.tiles.top or "tnt_top.png"
+	local tnt_bottom = def.tiles.bottom or "tnt_bottom.png"
+	local tnt_side = def.tiles.side or "tnt_side.png"
+	local tnt_burning = def.tiles.burning or "tnt_top_burning.png"
 	if not def.damage_radius then
 		def.damage_radius = def.radius * 2
 	end
@@ -350,12 +332,12 @@ function tnt.register_tnt(def)
 		description = def.description,
 		tiles = {tnt_top, tnt_bottom, tnt_side},
 		is_ground_content = false,
-		groups = {dig_immediate=2, mesecon=2, tnt=1},
+		groups = {dig_immediate = 2, mesecon = 2, tnt = 1},
 		sounds = default.node_sound_wood_defaults(),
 		on_punch = function(pos, node, puncher)
 			if puncher:get_wielded_item():get_name() == "default:torch" then
 				minetest.sound_play("tnt_ignite", {pos=pos})
-				minetest.set_node(pos, {name=name.."_burning"})
+				minetest.set_node(pos, {name = name .. "_burning"})
 				minetest.get_node_timer(pos):start(4)
 			end
 		end,
@@ -383,15 +365,32 @@ function tnt.register_tnt(def)
 		drop = "",
 		sounds = default.node_sound_wood_defaults(),
 		on_timer = function (pos, elapsed)
-			tnt.boom(pos,def.radius,def.damage_radius,def.disable_drops)
+			tnt.boom(pos, def.radius, def.damage_radius, def.disable_drops)
 		end,
 		-- unaffected by explosions
 		on_blast = function() end,
 	})
 end
 
-tnt.register_tnt({
-	name = "tnt",
+
+tnt.register_tnt("tnt:tnt", {
 	description = "TNT",
 	radius = radius,
+	tiles = {burning = "tnt_top_burning_animated.png"},
 })
+
+minetest.register_craft({
+	output = "tnt:gunpowder",
+	type = "shapeless",
+	recipe = {"default:coal_lump", "default:gravel"}
+})
+
+minetest.register_craft({
+	output = "tnt:tnt",
+	recipe = {
+		{"",           "group:wood",    ""},
+		{"group:wood", "tnt:gunpowder", "group:wood"},
+		{"",           "group:wood",    ""}
+	}
+})
+

@@ -1,12 +1,13 @@
-Minetest Game API
-=================
-GitHub Repo: https://github.com/minetest/minetest_game
+Minetest NeXt - Game API
+========================
+GitHub Repo: https://github.com/BlockMen/minetest_next
 
 Introduction
 ------------
-The Minetest Game subgame offers multiple new possibilities in addition to the Minetest engine's built-in API,
-allowing you to add new plants to farming mod, buckets for new liquids, new stairs and custom panes.
+Minetest NeXt offers multiple new possibilities in addition to the Minetest engine's API,
+allowing you to add new plants, stairs and much more.
 For information on the Minetest API, visit https://github.com/minetest/minetest/blob/master/doc/lua_api.txt
+
 Please note:
 	[XYZ] refers to a section the Minetest API
 	[#ABC] refers to a section in this document
@@ -145,6 +146,44 @@ farming.register_plant(name, Plant definition)
 	maxlight = default.LIGHT_MAX           -- Maximum light to grow
 }
 
+
+TNT API
+-------
+tnt.register_tnt(name, def)
+	^ name: "TNT name"
+	^ def: See [#TNT definition]
+ -> Register a new type of TNT
+
+tnt.boom(position, radius, damage_radius, disable_drops) 
+	^ position: position of explosion (center)
+	^ radius: Radius in which nodes can get removed
+	^ damage_radius: Radius in which players and mobs get damaged
+	^ disable_drops: Removed nodes are dropped
+ -> Create an explosion.
+
+#TNT definition
+---------------
+{
+	description = "TNT",					-- Description for TNT
+	radius = 3,						-- Radius in which nodes can get removed
+	damage_radius = 6,					-- Radius in which players and mobs get damaged
+	disable_drops = false,					-- Removed nodes are dropped
+	tiles = {
+	    bottom = {[Tile definition],
+		^ tiles of bottom
+	    },
+	    top = {[Tile definition],
+		^ tiles of top
+	    },
+	    side = {[Tile definition],
+		^ tiles of bottom
+	    },
+	    burning = {[Tile definition],
+		^ tiles of top when burning
+	    },
+	},
+}
+
 Screwdriver API
 ---------------
 The screwdriver API allows you to control a node's behaviour when a screwdriver is used on it.
@@ -268,11 +307,15 @@ default.player_set_animation(player, anim_name [, speed])
  -> anim_name: name of the animation.
  -> speed: frames per second. If nil, default from the model is used
 
-default.player_set_textures(player, textures)
-^ Sets player textures
+default.player_set_armor_texture(player, texture)
+^ Sets texture for armor layer
  -> player: PlayerRef
- -> textures: array of textures
- ^ If <textures> is nil, the default textures from the model def are used
+ -> texture: texture name as string
+
+default.player_set_skin(player, texture)
+^ Sets players skin (texture)
+ -> player: PlayerRef
+ -> texture: texture name as string
 
 default.player_get_animation(player)
 ^ Returns a table containing fields "model", "textures" and "animation".
