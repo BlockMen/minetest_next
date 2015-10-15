@@ -1,4 +1,5 @@
 local elements = armor.elements
+local armor_lvl = {}
 
 local function calc_protection(player)
 	local name = player:get_player_name()
@@ -61,12 +62,26 @@ end
 
 
 function armor.on_damage(player, hp_change)
-	if not hp_change or hp_change >= 0 then
+	if not player or not hp_change or hp_change >= 0 then
 		return hp_change or 0
 	end
 
-	local fleshy = player:get_armor_groups().fleshy or 100
-	local new_hp = math.floor(hp_change * (fleshy / 100)) or 0
+	local name = player:get_player_name()
+	if not name then
+		return hp_change
+	end
+
+	local ratio = (armor_lvl[name] or 100) / 100
+	local new_hp = -1
+	if math.abs(hp_change) > 1 then
+		new_hp = math.floor(hp_change * ratio) or 0
+	else
+		local get = math.random(0, 10) / 10
+		if get > ratio then
+			 return 0
+		end
+		hp_change = 0
+	end
 	if new_hp ~= hp_change then
 		armor.add_wearout(player)
 		armor.update_armor(player)
@@ -76,12 +91,15 @@ function armor.on_damage(player, hp_change)
 end
 
 function armor.update_armor(player)
+	if not player then
+		return
+	end
 	-- calc protection value depending on current armor (0 - 100)
 	local lvl = calc_protection(player)
-
+	local name = player:get_player_name()
 	-- set armor_groups depending on protection lvl
-	if lvl then
-		player:set_armor_groups({fleshy = 100 - lvl})
+	if lvl and name then
+		armor_lvl[name] = 100 - lvl
 	end
 
 	-- update armor textures
