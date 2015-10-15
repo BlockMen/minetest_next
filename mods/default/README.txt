@@ -138,12 +138,16 @@ BlockMen (CC BY-SA 3.0):
   default_chest_lock.png
   default_chest_side.png
   default_chest_top.png
-  default_jungletree_top.png, base on Texture of Cisoun (WTFPL)
+  default_jungletree_top.png, based on texture of Cisoun (WTFPL)
   default_mineral_mese.png
   default_meselamp.png
+  default_apple.png, based on texture of celeron55 (CC-BY-SA 3.0)
+  default_leaves_with_apple.png, based on texture of Cisoun (WTFPL)
   bubble.png
   heart.png
   gui_*.png
+  leaves_with_apple.obj
+  torch_*.obj
 
 Neuromancer (CC BY-SA 2.0):
   default_cobble.png, based on texture by Brane praefect
