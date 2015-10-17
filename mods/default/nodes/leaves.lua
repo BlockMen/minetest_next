@@ -86,7 +86,7 @@ else
 	minetest.register_node("default:leaves_with_apple", {
 		description = "Leaves with Apple",
 		drawtype = "mesh",
-		mesh = "leaves_apple.obj",
+		mesh = "leaves_with_apple.obj",
 		tiles = {"default_leaves_with_apple.png^default_leaves.png"},
 		inventory_image = "default_leaves.png^default_apple.png",
 		paramtype = "light",
