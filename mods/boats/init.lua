@@ -61,7 +61,7 @@ function boat.on_rightclick(self, clicker)
 		minetest.after(0.1, function()
 			clicker:setpos(pos)
 		end)
-	elseif not self.driver then
+	elseif not self.driver and default.player_attached[name] ~= true then
 		self.driver = clicker
 		clicker:set_attach(self.object, "",
 			{x = 0, y = 11, z = -3}, {x = 0, y = 0, z = 0})
