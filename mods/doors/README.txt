@@ -28,16 +28,16 @@ Fernando Zapata (CC BY-SA 3.0):
   doors_wood.png
 
 Esteban (CC BY-SA 3.0):
-  doors_wood_a.png
-  doors_wood_b.png
   doors_brown.png
-  doors_steel_a.png
-  doors_steel_b.png
   doors_grey.png
 
-BlockMen (WTFPL):
+BlockMen (CC BY-SA 3.0):
   doors_trapdoor.png
   doors_obsidian_glass_side.png
+  doors_wood_a.png
+  doors_wood_b.png
+  doors_steel_a.png
+  doors_steel_b.png
 
 celeron55 (CC BY-SA 3.0):
   doors_trapdoor_side.png
