@@ -20,10 +20,10 @@ function doors.register_door(name, def)
 	end
 
 	if not def.sound_close_door then
-		def.sound_close_door = "doors_door_close"
+		def.sound_close_door = "doors_wooden_close"
 	end
 	if not def.sound_open_door then
-		def.sound_open_door = "doors_door_open"
+		def.sound_open_door = "doors_wooden_open"
 	end
 	
 	
@@ -148,9 +148,9 @@ function doors.register_door(name, def)
 		end
 
 		if minetest.get_meta(pos):get_int("right") ~= 0 then
-			minetest.sound_play(snd_1, {pos = pos, gain = 0.3, max_hear_distance = 10})
+			minetest.sound_play(snd_1, {pos = pos, gain = 0.3, max_hear_distance = 15})
 		else
-			minetest.sound_play(snd_2, {pos = pos, gain = 0.3, max_hear_distance = 10})
+			minetest.sound_play(snd_2, {pos = pos, gain = 0.3, max_hear_distance = 15})
 		end
 	end
 

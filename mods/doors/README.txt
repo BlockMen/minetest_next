@@ -49,11 +49,11 @@ PenguinDad (CC BY-SA 4.0):
   doors_obsidian_glass.png
 
 PilzAdam (WTFPL):
-  door_obsidian_glass_a.png
-  door_obsidian_glass_b.png
+  doors_obsidian_glass_a.png
+  doors_obsidian_glass_b.png
 
 CGEffex (CC BY 3.0)
-  door_open.ogg
+  doors_wooden_open.ogg
 
 bennstir (CC BY 3.0)
-  door_close.ogg
+  doors_wooden_close.ogg
