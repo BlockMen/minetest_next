@@ -18,7 +18,7 @@ function beds.register_bed(name, def)
 		selection_box = {
 			type = "fixed",
 			fixed = def.selectionbox,
-				
+
 		},
 		after_place_node = function(pos, placer, itemstack)
 			local n = minetest.get_node_or_nil(pos)
@@ -36,7 +36,7 @@ function beds.register_bed(name, def)
 			end
 			minetest.set_node(p, {name = n.name:gsub("%_bottom", "_top"), param2 = n.param2})
 			return false
-		end,	
+		end,
 		on_destruct = function(pos)
 			local n = minetest.get_node_or_nil(pos)
 			if not n then return end
@@ -99,6 +99,25 @@ function beds.register_bed(name, def)
 			type = "fixed",
 			fixed = {0, 0, 0, 0, 0, 0},
 		},
+		on_destruct = function(pos)
+			local n = minetest.get_node_or_nil(pos)
+			if not n then
+				return
+			end
+			local f_dir = n.param2
+			if f_dir < 2 then
+				f_dir = f_dir + 2
+			else
+				f_dir = f_dir - 2
+			end
+
+			local dir = minetest.facedir_to_dir(f_dir)
+			local p = vector.add(pos, dir)
+			local n2 = minetest.get_node(p)
+			if minetest.get_item_group(n2.name, "bed") == 1 and n.param2 == n2.param2 then
+				minetest.after(0, minetest.remove_node, p)
+			end
+		end
 	})
 
 	minetest.register_alias(name, name .. "_bottom")
