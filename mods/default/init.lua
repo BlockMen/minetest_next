@@ -39,6 +39,7 @@ local modpath = minetest.get_modpath("default")
 local mg_name = minetest.get_mapgen_params().mgname or ""
 
 dofile(modpath .. "/functions.lua")
+dofile(modpath .. "/environment.lua")
 dofile(modpath .. "/nodes.lua")
 dofile(modpath .. "/tools.lua")
 dofile(modpath .. "/craftitems.lua")

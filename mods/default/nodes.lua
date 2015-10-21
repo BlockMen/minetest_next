@@ -1,5 +1,7 @@
 local modpath = minetest.get_modpath("default")
 
+dofile(modpath .. "/nodes/sounds.lua")
+
 -- full/natural/mapgen
 dofile(modpath .. "/nodes/ores.lua")
 dofile(modpath .. "/nodes/leaves.lua")
