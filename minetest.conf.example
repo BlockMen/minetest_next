@@ -1,9 +1,12 @@
-# This file contains settings of Minetest Game that can be changed in minetest.conf
+# This file contains settings of Minetest NeXt that can be changed in minetest.conf
 # By default, all the settings are commented and not functional.
 # Uncomment settings by removing the preceding #.
 
 # Whether creative mode (fast digging of all blocks, unlimited resources) should be enabled
 #creative_mode = false
+
+# Whether players inventory is placed into a node on death (bones node)
+#enable_bones = true
 
 # The time in seconds after which the bones of a dead player can be looted by everyone
 # 0 to disable
