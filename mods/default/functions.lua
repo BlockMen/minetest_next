@@ -207,6 +207,18 @@ function default.dig_up(pos, node, digger)
 end
 
 
+-- Returns true/false based on fixed time range
+
+function default.is_day()
+	local tod = minetest.get_timeofday()
+	if tod > 0.2 and tod < 0.805 then
+		return false
+	end
+
+	return true
+end
+
+
 --
 -- Leafdecay
 --
@@ -344,4 +356,3 @@ minetest.register_abm({
 		end
 	end
 })
-
