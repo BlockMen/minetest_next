@@ -12,8 +12,8 @@ end
 function default.is_day()
 	local tod = minetest.get_timeofday()
 	if tod > 0.2 and tod < 0.805 then
-		return false
+		return true
 	end
 
-	return true
+	return false
 end
