@@ -4,6 +4,7 @@ This mod is part of Minetest NeXt
 License of source code:
 -----------------------
 Copyright (C) 2011-2012 celeron55, Perttu Ahola <celeron55@gmail.com>
+Copyright (C) 2014-2015 BlockMen <blockmen2015@gmail.com>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -130,6 +131,7 @@ BlockMen (CC BY-SA 3.0):
   default_diamond.png
   default_diamond_block.png
   default_book.png
+  default_book_written.png
   default_tool_*.png
   default_lava_source_animated.png
   default_lava_flowing_animated.png
