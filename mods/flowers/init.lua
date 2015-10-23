@@ -164,11 +164,11 @@ end
 minetest.register_abm({
 	nodenames = {"group:mushroom"},
 	interval = 50,
-	chance = 20,
+	chance = 35,
 	action = function(pos, node)
 		pos.y = pos.y - 1
 		local p = minetest.find_node_near(pos, 1, "air")
-		if not p then
+		if not p or not default.is_day() then
 			return
 		end
 
