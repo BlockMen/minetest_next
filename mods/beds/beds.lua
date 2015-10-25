@@ -43,7 +43,7 @@ beds.register_bed("beds:fancy_bed", {
 	selectionbox = {-0.5, -0.5, -0.5, 0.5, 0.06, 1.5},
 	recipe = {
 		{"", "", "group:stick"},
-		{"wool:red", "wool:red", "wool:white"},
+		{"group:wool", "group:wool", "group:wool"},
 		{"group:wood", "group:wood", "group:wood"},
 	},
 })
@@ -64,7 +64,7 @@ beds.register_bed("beds:bed", {
 	    },
 	    top = {
 		"beds_bed_top_top.png^[transformR90",
-		"default_wood.png", 
+		"default_wood.png",
 		"beds_bed_side_top_r.png",
 		"beds_bed_side_top_r.png^[transformfx",
 		"beds_bed_side_top.png",
@@ -77,12 +77,8 @@ beds.register_bed("beds:bed", {
 	},
 	selectionbox = {-0.5, -0.5, -0.5, 0.5, 0.06, 1.5},
 	recipe = {
-		{"wool:red", "wool:red", "wool:white"},
+		{"group:wool", "group:wool", "group:wool"},
 		{"group:wood", "group:wood", "group:wood"}
 	},
 
 })
-
--- aliases for PA's beds mod
-minetest.register_alias("beds:bed_bottom_red", "beds:bed_bottom")
-minetest.register_alias("beds:bed_top_red", "beds:bed_top")
