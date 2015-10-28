@@ -55,7 +55,7 @@ minetest.register_craft({
 minetest.register_craft({
 	output = 'default:torch 4',
 	recipe = {
-		{'default:coal_lump'},
+		{'group:coal'},
 		{'group:stick'},
 	}
 })
@@ -699,4 +699,10 @@ minetest.register_craft({
 	type = "cooking",
 	output = "default:clay_brick",
 	recipe = "default:clay_lump",
+})
+
+minetest.register_craft({
+	type = "cooking",
+	output = "default:charcoal",
+	recipe = "group:tree",
 })
