@@ -150,6 +150,8 @@ BlockMen (CC BY-SA 3.0):
   gui_*.png
   leaves_with_apple.obj
   torch_*.obj
+BlockMen (WTFPL):
+  default_charcoal.png
 
 Neuromancer (CC BY-SA 2.0):
   default_cobble.png, based on texture by Brane praefect
