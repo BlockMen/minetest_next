@@ -145,6 +145,7 @@ BlockMen (CC BY-SA 3.0):
   default_meselamp.png
   default_apple.png, based on texture of celeron55 (CC-BY-SA 3.0)
   default_leaves_with_apple.png, based on texture of Cisoun (WTFPL)
+  default_charcoal.png
   bubble.png
   heart.png
   gui_*.png

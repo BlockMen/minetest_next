@@ -24,3 +24,9 @@ minetest.register_craftitem("default:obsidian_shard", {
 	description = "Obsidian Shard",
 	inventory_image = "default_obsidian_shard.png",
 })
+
+minetest.register_craftitem("default:charcoal", {
+	description = "Charcoal",
+	inventory_image = "default_charcoal.png",
+	groups = {coal = 1, fuel = 30},
+})
