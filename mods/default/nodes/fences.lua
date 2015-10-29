@@ -9,7 +9,7 @@ default.register_fence(name, def)
 		def.sounds = default.node_sound_wood_defaults()
 	end
 	
-	minetest.register_node(name), {
+	minetest.register_node(name, {
 		description = def.description,
 		drawtype = "fencelike",
 		tiles = {def.texture},
