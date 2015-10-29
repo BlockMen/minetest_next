@@ -1,4 +1,3 @@
-
 minetest.register_chatcommand("clearinv", {
 	params = "<inventory>",
 	description = "Clears an entire inventory, \"main\" if unspecified, \"craft\" is another possible choice",
