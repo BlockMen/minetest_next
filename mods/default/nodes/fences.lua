@@ -25,24 +25,37 @@ default.register_fence(name, def)
 		groups = def.groups,
 		sounds = def.sounds,
 	})
+	
+	
+	minetest.register_craft({
+		output = name .. ' 4',
+		recipe = {
+			{'group:stick', def.craftitem, 'group:stick'},
+			{'group:stick', def.craftitem, 'group:stick'},
+		}
+	})
 end
 
 default.register_fence("default:fence_wood", {
 	description = "Wooden Fence",
 	texture = "default_wood.png",
+	craftitem = "default:wood"
 })
 
 default.register_fence("default:fence_junglewood", {
 	description = "Junglewood Fence",
 	texture = "default_junglewood.png",
+	craftitem = "default:junglewood"
 })
 
 default.register_fence("default:fence_pinewood", {
 	description = "Pine Wood Fence",
 	texture = "default_pine_wood.png",
+	craftitem = "default:pinewood"
 })
 
 default.register_fence("default:fence_acaciawood", {
 	description = "Acacia Wood Fence",
 	texture = "default_acacia_wood.png",
+	craftitem = "default:acacia_wood"
 })
