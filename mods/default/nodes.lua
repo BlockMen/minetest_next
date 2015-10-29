@@ -49,7 +49,7 @@ dofile(modpath .. "/nodes/food.lua")
 dofile(modpath .. "/nodes/latter.lua")
 dofile(modpath .. "/nodes/rails.lua")
 dofile(modpath .. "/nodes/signs.lua")
-dofile(modpath .. "/nodes/fence.lua")
+dofile(modpath .. "/nodes/fences.lua")
 
 dofile(modpath .. "/nodes/nyancat.lua")
 

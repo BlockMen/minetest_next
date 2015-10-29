@@ -230,7 +230,7 @@ stairs.register_stair_and_slab(subname, recipeitem, groups, images, desc_stair, 
 
 Xpanes API
 ----------
-Creates panes that automatically connect to each other
+Creates panes that automatically connect to each other.
 
 xpanes.register_pane(subname, def)
  -> subname: used for nodename. Result: "xpanes:subname" and "xpanes:subname_{2..15}"
@@ -247,6 +247,30 @@ xpanes.register_pane(subname, def)
 	^ See [#Default sounds]
 	recipe = {{"","","","","","","","",""}},
 	^ Recipe field only
+}
+
+Fence API
+---------
+Creates fences of given material.
+
+default.register_fence(itemstring, def)
+ -> itemstring: used for nodename and crafting recipes.
+ -> def: See [#Fence deinition]
+
+#Fence definition
+-----------------
+{
+	description = "Wooden Fence",
+	^ The name / description of the fence
+	texture = "default_wood.png",
+	^ The texture for the node. It is used to create the inventory texture too.
+	material = "default:wood",
+	^ The material which you need to craft the fence.
+	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, fuel = 4},
+	^ The groups of the fence. If it isn't defined it equals {choppy = 2, 
+	  oddly_breakable_by_hand = 2, flammable = 2, fuel = 4}.
+	sounds = default.node_sound_wood_defaults()
+	^ The sounds of the fence. If it isn't defined it equals default.node_sound_wood_defaults().
 }
 
 Raillike definitions
