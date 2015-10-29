@@ -1,4 +1,4 @@
-default.register_fence(name, def)
+function default.register_fence(name, def)
 	local fence_texture_1 = "default_fence_overlay.png^"
 	local fence_texture_2 = "^default_fence_overlay.png^[makealpha:255,126,126"
 	
