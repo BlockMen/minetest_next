@@ -5,8 +5,8 @@ minetest.register_chatcommand("clearinv", {
 		local player = minetest.get_player_by_name(name)
 		local player_inv = player:get_inventory()
 		if not player then
-		minetest.log("error", "Unable to clear inventory, no player.")
-		return false, "Unable to clear inventory, no player."
+			minetest.log("error", "Unable to clear inventory, no player.")
+			return false, "Unable to clear inventory, no player."
 		end
 		if param == "" then
 			player_inv:set_list("main", {})
