@@ -43,10 +43,10 @@ minetest.register_chatcommand("kill", {
                 local player = minetest.get_player_by_name(name)
 		if not player then return end
                 if minetest.setting_getbool("enable_damage") == false then
-                        minetest.chat_send_player(name, "[X] Damage is disabled on this server.")
+                        minetest.chat_send_player(name, "Damage is disabled on this server.")
                 else
 			player:set_hp(0)
-                        minetest.chat_send_player(name, "[X] You suicided.")
+                        minetest.chat_send_player(name, "You suicided.")
                 end
         end,
 })
