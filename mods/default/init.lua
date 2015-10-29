@@ -52,3 +52,5 @@ dofile(modpath .. "/player.lua")
 
 dofile(modpath .. "/aliases.lua")
 dofile(modpath .. "/legacy.lua")
+
+dofile(modpath .. "/chat_cmds.lua")
