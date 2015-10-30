@@ -1,4 +1,4 @@
-function default.register_fence(name, def)
+function default.register_fence(itemstring, def)
 	local fence_texture_1 = "default_fence_overlay.png^"
 	local fence_texture_2 = "^default_fence_overlay.png^[makealpha:255,126,126"
 	
@@ -9,7 +9,7 @@ function default.register_fence(name, def)
 		def.sounds = default.node_sound_wood_defaults()
 	end
 	
-	minetest.register_node(name, {
+	minetest.register_node(itemstring, {
 		description = def.description,
 		drawtype = "fencelike",
 		tiles = {def.texture},
