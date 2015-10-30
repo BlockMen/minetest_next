@@ -263,8 +263,7 @@ default.register_fence(itemstring, def)
 	description = "Wooden Fence",
 	^ The name / description of the fence
 	texture = "default_wood.png",
-	^ The texture for the node. It is used for the inventory texture too, but with some tricks
-	  and the texture default_fence_overlay.png.
+	^ The texture for the node. It is used to create the inventory texture too.
 	material = "default:wood",
 	^ The material which you need to craft the fence.
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, fuel = 4},
