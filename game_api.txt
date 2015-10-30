@@ -251,7 +251,7 @@ xpanes.register_pane(subname, def)
 
 Fence API
 ---------
-Creates fences that automatically connect to each other.
+Creates fences of given material.
 
 default.register_fence(itemstring, def)
  -> itemstring: used for nodename and crafting recipes.
@@ -266,7 +266,7 @@ default.register_fence(itemstring, def)
 	^ The texture for the node. It is used for the inventory texture too, but with some tricks
 	  and the texture default_fence_overlay.png.
 	material = "default:wood",
-	^ The material wich you need to craft the fence.
+	^ The material which you need to craft the fence.
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, fuel = 4},
 	^ The groups of the fence. If it isn't defined it equals {choppy = 2, 
 	  oddly_breakable_by_hand = 2, flammable = 2, fuel = 4}.
