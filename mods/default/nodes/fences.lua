@@ -28,7 +28,7 @@ function default.register_fence(itemstring, def)
 	
 	
 	minetest.register_craft({
-		output = name .. ' 4',
+		output = itemstring .. ' 4',
 		recipe = {
 			{'group:stick', def.material, 'group:stick'},
 			{'group:stick', def.material, 'group:stick'},
