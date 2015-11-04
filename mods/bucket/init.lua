@@ -54,7 +54,7 @@ function bucket.register_liquid(source, flowing, itemname, inventory_image, name
 				if pointed_thing.type ~= "node" then
 					return
 				end
-				
+
 				local node = minetest.get_node_or_nil(pointed_thing.under)
 				local ndef
 				if node then
@@ -107,7 +107,7 @@ minetest.register_craftitem("bucket:bucket_empty", {
 	inventory_image = "bucket.png",
 	stack_max = 99,
 	liquids_pointable = true,
-	on_use = function(itemstack, user, pointed_thing)
+	on_place = function(itemstack, user, pointed_thing)
 		-- Must be pointing to node
 		if pointed_thing.type ~= "node" then
 			return
