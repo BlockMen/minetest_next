@@ -72,7 +72,7 @@ function bucket.register_liquid(source, flowing, itemname, inventory_image, name
 				local place_liquid = function(pos, node, source, flowing)
 					if check_protection(pos,
 							user and user:get_player_name() or "",
-							"place "..source) then
+							"place "..source) or node.name == source then
 						return
 					end
 					minetest.add_node(pos, {name=source})
@@ -96,7 +96,11 @@ function bucket.register_liquid(source, flowing, itemname, inventory_image, name
 						return
 					end
 				end
-				return {name="bucket:bucket_empty"}
+				local retval = {name = "bucket:bucket_empty"}
+				if minetest.setting_getbool("creative_mode") == true then
+					retval = nil
+				end
+				return retval
 			end
 		})
 	end
@@ -143,13 +147,17 @@ minetest.register_craftitem("bucket:bucket_empty", {
 				end
 
 				-- set to return empty buckets minus 1
-				giving_back = "bucket:bucket_empty "..tostring(item_count-1)
+				giving_back = "bucket:bucket_empty " .. tostring(item_count-1)
 
 			end
 
 			minetest.add_node(pointed_thing.under, {name="air"})
 
-			return ItemStack(giving_back)
+			local retval = ItemStack(giving_back)
+			if minetest.setting_getbool("creative_mode") == true then
+				retval = itemstack
+			end
+			return retval
 		end
 	end,
 })
