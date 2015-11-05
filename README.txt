@@ -32,7 +32,7 @@ License of media (textures and sounds)
 See README.txt in each mod directory for information about other authors.
 
 License of menu/header.png
-Copyright (C) 2014 BlockMen CC BY-SA 3.0
+Copyright (C) 2015 BlockMen CC BY-SA 3.0
 
 License of menu/icon.png
 Copyright (C) 2014 BlockMen CC BY-SA 3.0 (based on icon by erlehmann CC BY-SA 3.0)
