@@ -48,3 +48,7 @@ Gambit (WTFPL):
   farming_flour.png
   farming_cotton_seed.png
   farming_wheat_seed.png
+
+LNJ (CC BY-SA 3.0):
+  farming_potato.png
+  farming_potato_*.png
