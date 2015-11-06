@@ -198,52 +198,98 @@ farming.register_plant = function(name, def)
 	if not def.fertility then
 		def.fertility = {}
 	end
-
-	-- Register seed
+	if not def.has_seed then
+		def.has_seed = true
+	end
+	
+	
 	local g = {seed = 1, snappy = 3, attached_node = 1}
 	for k, v in pairs(def.fertility) do
 		g[v] = 1
 	end
-	minetest.register_node(":" .. mname .. ":seed_" .. pname, {
-		description = def.description,
-		tiles = {def.inventory_image},
-		inventory_image = def.inventory_image,
-		wield_image = def.inventory_image,
-		drawtype = "signlike",
-		groups = g,
-		paramtype = "light",
-		paramtype2 = "wallmounted",
-		walkable = false,
-		sunlight_propagates = true,
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
-		},
-		fertility = def.fertility,
-		on_place = function(itemstack, placer, pointed_thing)
-			return farming.place_seed(itemstack, placer, pointed_thing, mname .. ":seed_" .. pname)
-		end
-	})
-
-	-- Register harvest
-	minetest.register_craftitem(":" .. mname .. ":" .. pname, {
-		description = pname:gsub("^%l", string.upper),
-		inventory_image = mname .. "_" .. pname .. ".png",
-	})
-
+	
+	if def.has_seed then
+		-- Register seed
+		minetest.register_node(":" .. mname .. ":seed_" .. pname, {
+			description = def.description,
+			tiles = {def.inventory_image},
+			inventory_image = def.inventory_image,
+			wield_image = def.inventory_image,
+			drawtype = "signlike",
+			groups = g,
+			paramtype = "light",
+			paramtype2 = "wallmounted",
+			walkable = false,
+			sunlight_propagates = true,
+			selection_box = {
+				type = "fixed",
+				fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
+			},
+			fertility = def.fertility,
+			on_place = function(itemstack, placer, pointed_thing)
+				return farming.place_seed(itemstack, placer, pointed_thing, mname .. ":seed_" .. pname)
+			end
+		})
+		
+		-- Register harvest
+		minetest.register_craftitem(":" .. mname .. ":" .. pname, {
+			description = pname:gsub("^%l", string.upper),
+			inventory_image = mname .. "_" .. pname .. ".png",
+		})
+	else
+		minetest.register_node(":" .. mname .. ":" .. pname, {
+			description = def.description,
+			tiles = {def.inventory_image},
+			inventory_image = def.inventory_image,
+			wield_image = def.inventory_image,
+			drawtype = "signlike",
+			groups = g,
+			paramtype = "light",
+			paramtype2 = "wallmounted",
+			walkable = false,
+			sunlight_propagates = true,
+			selection_box = {
+				type = "fixed",
+				fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
+			},
+			fertility = def.fertility,
+			on_place = function(itemstack, placer, pointed_thing)
+				return farming.place_seed(itemstack, placer, pointed_thing, mname .. ":" .. pname)
+			end
+		})
+	end
+	
 	-- Register growing steps
 	for i=1,def.steps do
-		local drop = {
-			items = {
-				{items = {mname .. ":" .. pname}, rarity = 9 - i},
-				{items = {mname .. ":" .. pname}, rarity= 18 - i * 2},
-				{items = {mname .. ":seed_" .. pname}, rarity = 9 - i},
-				{items = {mname .. ":seed_" .. pname}, rarity = 18 - i * 2},
+		if i < def.steps and def.has_seed == true then
+			local drop = mname .. ":seed_" .. pname
+		elseif i < def.steps and def.has_seed == false then
+			local drop = mname .. ":" .. pname
+		elseif i == def.steps and def.has_seed == true then
+			local drop = def.drop or {
+				items = {
+					{items = {mname .. ":" .. pname}},
+					{items = {mname .. ":" .. pname}, rarity = 2},
+					{items = {mname .. ":" .. pname}, rarity = 10},
+					{items = {mname .. ":seed_" .. pname}},
+					{items = {mname .. ":seed_" .. pname}, rarity = 2.25},
+					{items = {mname .. ":seed_" .. pname}, rarity = 10},
+				}
 			}
-		}
+		elseif i == def.steps and def.has_seed == false then
+			local drop = def.drop or {
+				items = {
+					{items = {mname .. ":" .. pname}},
+					{items = {mname .. ":" .. pname}, rarity = 1.2},
+					{items = {mname .. ":" .. pname}, rarity = 2},
+					{items = {mname .. ":" .. pname}, rarity = 4},
+					{items = {mname .. ":" .. pname}, rarity = 16},
+				}
+			}
+		end
 		local nodegroups = {snappy = 3, flammable = 2, plant = 1, not_in_creative_inventory = 1, attached_node = 1}
 		nodegroups[pname] = i
-		minetest.register_node(mname .. ":" .. pname .. "_" .. i, {
+		minetest.register_node(":" .. mname .. ":" .. pname .. "_" .. i, {
 			drawtype = "plantlike",
 			waving = 1,
 			tiles = {mname .. "_" .. pname .. "_" .. i .. ".png"},
@@ -288,8 +334,10 @@ farming.register_plant = function(name, def)
 						can_grow = true
 					end
 				end
-				if can_grow then
+				if can_grow and def.has_seed then
 					minetest.set_node(pos, {name = node.name:gsub("seed_", "") .. "_1"})
+				else
+					minetest.set_node(pos, {name = node.name .. "_1"})
 				end
 				return
 			end
@@ -303,9 +351,9 @@ farming.register_plant = function(name, def)
 			pos.y = pos.y + 1
 
 			-- check light
-			local ll = minetest.get_node_light(pos)
+			local light_level = minetest.get_node_light(pos)
 
-			if not ll or ll < def.minlight or ll > def.maxlight then
+			if not light_level or light_level < def.minlight or light_level > def.maxlight then
 				return
 			end
 
@@ -315,9 +363,16 @@ farming.register_plant = function(name, def)
 	})
 
 	-- Return
-	local r = {
-		seed = mname .. ":seed_" .. pname,
-		harvest = mname .. ":" .. pname
-	}
+	if def.has_seed then
+		local r = {
+			seed = mname .. ":seed_" .. pname,
+			harvest = mname .. ":" .. pname
+		}
+	else
+		local r = {
+			seed = mname .. ":" .. pname,
+			harvest = mname .. ":" .. pname
+		}
+	end
 	return r
 end
