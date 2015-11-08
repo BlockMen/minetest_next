@@ -44,14 +44,7 @@ minetest.register_abm({
     interval = 2,
     chance = 5,
     action = function(pos, node)
-        local above = {x=pos.x, y=pos.y+1, z=pos.z}
-        local name = minetest.get_node(above).name
-        local nodedef = minetest.registered_nodes[name]
-        if nodedef and nodedef.liquidtype then
-		minetest.set_node(pos, {name = "air"})
-        else
-		minetest.set_node(pos, {name = name})
-        end
+	minetest.set_node(pos, {name = "air"})
     end,
 })
 
