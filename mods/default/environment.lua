@@ -48,11 +48,9 @@ minetest.register_abm({
         local name = minetest.get_node(above).name
         local nodedef = minetest.registered_nodes[name]
         if nodedef and nodedef.liquidtype then
-            if liquid_finite then
-                minetest.set_node(pos, {name = "air"})
-            else
-                minetest.set_node(pos, {name = name})
-            end
+		minetest.set_node(pos, {name = "air"})
+        else
+		minetest.set_node(pos, {name = name})
         end
     end,
 })
