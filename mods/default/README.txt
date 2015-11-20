@@ -77,6 +77,7 @@ PilzAdam (WTFPL):
   default_obsidian_shard.png
   default_mineral_gold.png
   default_snowball.png
+  default_item_pickup.*.ogg
 
 jojoa1997 (WTFPL):
   default_obsidian.png
