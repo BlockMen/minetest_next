@@ -36,8 +36,6 @@ dofile(modpath .. "/nodes/planks.lua")
 
 dofile(modpath .. "/nodes/bricks.lua")
 
-dofile(modpath .. "/nodes/carpets.lua")
-
 
 -- special
 dofile(modpath .. "/nodes/torch.lua")
