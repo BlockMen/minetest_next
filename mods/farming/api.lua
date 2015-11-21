@@ -346,17 +346,17 @@ farming.register_plant = function(name, def)
 		end
 	})
 
-	-- Return
-	if def.has_seed then
-		local r = {
-			seed = mname .. ":seed_" .. pname,
-			harvest = mname .. ":" .. pname
-		}
-	else
-		local r = {
+	-- Return definition table
+	local retval = {
+		seed = mname .. ":seed_" .. pname,
+		harvest = mname .. ":" .. pname
+	}
+
+	if def.has_seed == false then
+		retval = {
 			seed = mname .. ":" .. pname,
 			harvest = mname .. ":" .. pname
 		}
 	end
-	return r
+	return retval
 end
