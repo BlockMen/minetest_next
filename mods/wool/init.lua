@@ -50,7 +50,7 @@ for _, row in ipairs(wool.dyes) do
 end
 
 -- Register carpets
-for _, row in ipairs(dyes) do
+for _, row in ipairs(wool.dyes) do
 	local name = row[1]
 	local desc = row[2]
 	
