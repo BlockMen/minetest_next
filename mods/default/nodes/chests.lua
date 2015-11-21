@@ -33,7 +33,7 @@ end
 
 local function drop_chest_stuff()
 	return function(pos, oldnode, oldmetadata, digger)
-		local meta = minetest.env:get_meta(pos)
+		local meta = minetest.get_meta(pos)
 		meta:from_table(oldmetadata)
 		local inv = meta:get_inventory()
 		for i=1,inv:get_size("main") do
