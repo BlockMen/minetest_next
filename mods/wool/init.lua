@@ -26,6 +26,7 @@ wool.dyes = {
 	{"dark_green", "Dark Green", "unicolor_dark_green"},
 }
 
+-- Register wool blocks
 for _, row in ipairs(wool.dyes) do
 	local name = row[1]
 	local desc = row[2]
@@ -48,3 +49,33 @@ for _, row in ipairs(wool.dyes) do
 	end
 end
 
+-- Register carpets
+for _, row in ipairs(dyes) do
+	local name = row[1]
+	local desc = row[2]
+	
+	-- Node Definition
+	minetest.register_node("wool:carpet_"..name, {
+		description = desc.." Carpet",
+		tiles = {"wool_"..name..".png"},
+		is_ground_content = true,
+		paramtype = "light",
+		drawtype = "nodebox",
+		node_box = {
+			type = "fixed",
+			fixed = {
+				{-0.5, -0.5, -0.5,  0.5, -0.57+2/16, 0.5},
+			},
+		},
+		groups = {snappy = 2, choppy = 2, oddly_breakable_by_hand = 3, flammable = 3, carpet = 1, attached_node = 1},
+		sounds = default.node_sound_defaults(),
+	})
+	
+	-- Crafting from wool
+	minetest.register_craft({
+		output = "wool:carpet_" .. name .. " 4",
+		recipe = {
+			{"wool:" .. name, "wool:" .. name},
+		},
+	})
+end
