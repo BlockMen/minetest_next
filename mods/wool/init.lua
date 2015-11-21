@@ -31,20 +31,21 @@ for _, row in ipairs(wool.dyes) do
 	local name = row[1]
 	local desc = row[2]
 	local craft_color_group = row[3]
+	
 	-- Node Definition
-	minetest.register_node("wool:"..name, {
-		description = desc.." Wool",
-		tiles = {"wool_"..name..".png"},
+	minetest.register_node("wool:" .. name, {
+		description = desc .. " Wool",
+		tiles = {"wool_" .. name .. ".png"},
 		is_ground_content = false,
-		groups = {snappy=2,choppy=2,oddly_breakable_by_hand=3,flammable=3,wool=1},
+		groups = {snappy = 2, choppy = 2, oddly_breakable_by_hand = 3, flammable = 3, wool = 1},
 		sounds = default.node_sound_defaults(),
 	})
 	if craft_color_group then
 		-- Crafting from dye and white wool
 		minetest.register_craft({
 			type = "shapeless",
-			output = 'wool:'..name,
-			recipe = {'group:dye,'..craft_color_group, 'group:wool'},
+			output = "wool:" .. name,
+			recipe = {"group:dye," .. craft_color_group, "group:wool"},
 		})
 	end
 end
@@ -55,9 +56,9 @@ for _, row in ipairs(wool.dyes) do
 	local desc = row[2]
 	
 	-- Node Definition
-	minetest.register_node("wool:carpet_"..name, {
-		description = desc.." Carpet",
-		tiles = {"wool_"..name..".png"},
+	minetest.register_node("wool:carpet_" .. name, {
+		description = desc .. " Carpet",
+		tiles = {"wool_" .. name .. ".png"},
 		is_ground_content = true,
 		paramtype = "light",
 		drawtype = "nodebox",
