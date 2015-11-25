@@ -31,6 +31,21 @@ end
 
 -- Helper functions
 
+local function drop_chest_stuff()
+	return function(pos, oldnode, oldmetadata, digger)
+		local meta = minetest.get_meta(pos)
+		meta:from_table(oldmetadata)
+		local inv = meta:get_inventory()
+		for i=1,inv:get_size("main") do
+			local stack = inv:get_stack("main", i)
+			if not stack:is_empty() then
+				local p = {x=pos.x+math.random(0, 5)/5-0.5, y=pos.y, z=pos.z+math.random(0, 5)/5-0.5}
+				minetest.add_item(p, stack)
+			end
+		end
+	end
+end
+
 local function has_locked_chest_privilege(meta, player)
 	if player:get_player_name() ~= meta:get_string("owner") then
 		return false
@@ -50,18 +65,14 @@ minetest.register_node("default:chest", {
 	legacy_facedir_simple = true,
 	is_ground_content = false,
 	sounds = default.node_sound_wood_defaults(),
-
+	
+	after_dig_node = drop_chest_stuff(),
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("formspec", chest_formspec)
 		meta:set_string("infotext", "Chest")
 		local inv = meta:get_inventory()
 		inv:set_size("main", 8*4)
-	end,
-	can_dig = function(pos,player)
-		local meta = minetest.get_meta(pos);
-		local inv = meta:get_inventory()
-		return inv:is_empty("main")
 	end,
 	on_metadata_inventory_move = function(pos, from_list, from_index,
 			to_list, to_index, count, player)
@@ -87,7 +98,8 @@ minetest.register_node("default:chest_locked", {
 	legacy_facedir_simple = true,
 	is_ground_content = false,
 	sounds = default.node_sound_wood_defaults(),
-
+	
+	after_dig_node = drop_chest_stuff(),
 	after_place_node = function(pos, placer)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("owner", placer:get_player_name() or "")
@@ -103,8 +115,7 @@ minetest.register_node("default:chest_locked", {
 	end,
 	can_dig = function(pos,player)
 		local meta = minetest.get_meta(pos);
-		local inv = meta:get_inventory()
-		return inv:is_empty("main") and has_locked_chest_privilege(meta, player)
+		return has_locked_chest_privilege(meta, player)
 	end,
 	allow_metadata_inventory_move = function(pos, from_list, from_index,
 			to_list, to_index, count, player)
