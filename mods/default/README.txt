@@ -206,7 +206,7 @@ Mito551 (CC BY-SA):
   default_dirt_footstep.2.ogg
   default_glass_footstep.ogg
 
-Copyright (c) 2015 ingar: 
+ingar (CC BY-SA 3.0):
   default_grass_footstep.1.ogg
   default_grass_footstep.2.ogg
   default_grass_footstep.3.ogg
