@@ -52,7 +52,7 @@ function creative_inventory.update(player_name, filter)
 	for name, def in pairs(minetest.registered_items) do
 		if not (def.groups.not_in_creative_inventory == 1) and
 				def.description and def.description ~= "" then
-			if (filter and def.name:find(filter)) or not filter then
+			if (filter and def.name:find(filter, 1, true)) or not filter then
 				creative_list[#creative_list+1] = name
 			end
 		end
