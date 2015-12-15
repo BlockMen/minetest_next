@@ -52,6 +52,10 @@ PilzAdam (WTFPL):
   doors_obsidian_glass_a.png
   doors_obsidian_glass_b.png
 
+sofar (CC-BY-SA-3.0):
+  doors_trapdoor_steel.png
+  doors_trapdoor_steel_side.png
+
 CGEffex (CC BY 3.0)
   doors_wooden_open.ogg
 
