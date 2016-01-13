@@ -170,7 +170,7 @@ function stairs.register_slab(subname, recipeitem, groups, images, description, 
 				end
 				return itemstack
 			end
-			
+
 			-- Upside down slabs
 			if p0.y - 1 == p1.y then
 				-- Turn into full block if pointing at a existing slab
@@ -287,6 +287,13 @@ stairs.register_stair_and_slab("acacia_wood", "default:acacia_wood",
 		"Acacia Wood Slab",
 		default.node_sound_wood_defaults())
 
+stairs.register_stair_and_slab("aspen_wood", "default:aspen_wood",
+		{snappy = 2, choppy = 2, oddly_breakable_by_hand = 2, flammable = 3},
+		{"default_aspen_wood.png"},
+		"Aspen Wood Stair",
+		"Aspen Wood Slab",
+		default.node_sound_wood_defaults())
+
 stairs.register_stair_and_slab("stone", "default:stone",
 		{cracky = 3},
 		{"default_stone.png"},
@@ -335,7 +342,7 @@ stairs.register_stair_and_slab("sandstone", "default:sandstone",
 		"Sandstone Stair",
 		"Sandstone Slab",
 		default.node_sound_stone_defaults())
-		
+
 stairs.register_stair_and_slab("sandstonebrick", "default:sandstonebrick",
 		{crumbly = 2, cracky = 2},
 		{"default_sandstone_brick.png"},

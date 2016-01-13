@@ -29,3 +29,11 @@ minetest.register_node("default:acacia_wood", {
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 3, wood = 1, fuel = 8},
 	sounds = default.node_sound_wood_defaults(),
 })
+
+minetest.register_node("default:aspen_wood", {
+	description = "Aspen Wood Planks",
+	tiles = {"default_aspen_wood.png"},
+	is_ground_content = false,
+	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 3, wood = 1},
+	sounds = default.node_sound_wood_defaults(),
+})

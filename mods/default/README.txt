@@ -152,6 +152,9 @@ BlockMen (CC BY-SA 3.0):
   leaves_with_apple.obj
   torch_*.obj
 
+sofar (CC BY-SA 3.0):
+  default_aspen_*.png
+
 Neuromancer (CC BY-SA 2.0):
   default_cobble.png, based on texture by Brane praefect
   default_mossycobble.png, based on texture by Brane praefect
