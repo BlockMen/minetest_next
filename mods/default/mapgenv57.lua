@@ -568,7 +568,7 @@ minetest.register_decoration({
 	rotation = "random",
 })
 
--- Aspen tree
+-- Birch tree
 minetest.register_decoration({
 	deco_type = "schematic",
 	place_on = {"default:dirt_with_grass"},
@@ -584,7 +584,7 @@ minetest.register_decoration({
 	biomes = {"deciduous_forest"},
 	y_min = 1,
 	y_max = 31000,
-	schematic = minetest.get_modpath("default").."/schematics/aspen_tree.mts",
+	schematic = minetest.get_modpath("default").."/schematics/birch_tree.mts",
 	flags = "place_center_x, place_center_z",
 	rotation = "random",
 })

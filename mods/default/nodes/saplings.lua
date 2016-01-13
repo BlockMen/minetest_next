@@ -74,13 +74,13 @@ minetest.register_node("default:acacia_sapling", {
 	sounds = default.node_sound_leaves_defaults(),
 })
 
-minetest.register_node("default:aspen_sapling", {
-	description = "Aspen Tree Sapling",
+minetest.register_node("default:birch_sapling", {
+	description = "Birch Tree Sapling",
 	drawtype = "plantlike",
 	visual_scale = 1.0,
-	tiles = {"default_aspen_sapling.png"},
-	inventory_image = "default_aspen_sapling.png",
-	wield_image = "default_aspen_sapling.png",
+	tiles = {"default_birch_sapling.png"},
+	inventory_image = "default_birch_sapling.png",
+	wield_image = "default_birch_sapling.png",
 	paramtype = "light",
 	sunlight_propagates = true,
 	walkable = false,

@@ -153,7 +153,7 @@ BlockMen (CC BY-SA 3.0):
   torch_*.obj
 
 sofar (CC BY-SA 3.0):
-  default_aspen_*.png
+  default_birch_*.png
 
 Neuromancer (CC BY-SA 2.0):
   default_cobble.png, based on texture by Brane praefect

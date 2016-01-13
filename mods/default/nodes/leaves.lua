@@ -71,14 +71,14 @@ default.register_leaves("default:acacia_leaves", {
 	}
 })
 
-default.register_leaves("default:aspen_leaves", {
-	description = "Aspen Leaves",
-	tiles = {"default_aspen_leaves.png"},
+default.register_leaves("default:birch_leaves", {
+	description = "Birch Leaves",
+	tiles = {"default_birch_leaves.png"},
 	drop = {
 		max_items = 1,
 		items = {
-			{items = {"default:aspen_sapling"}, rarity = 20},
-			{items = {"default:aspen_leaves"}}
+			{items = {"default:birch_sapling"}, rarity = 20},
+			{items = {"default:birch_leaves"}}
 		}
 	}
 })
