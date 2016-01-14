@@ -25,9 +25,7 @@ License of media (textures, sounds, meshes):
 (by Authors)
 
 Cisoun (WTFPL):
-  default_jungletree.png
   default_lava.png
-  default_leaves.png
   default_sapling.png
   default_sign_wall.png
   default_stone.png
@@ -52,7 +50,6 @@ VanessaE (WTFPL):
   default_nc_side.png
   default_desert_sand.png
   default_desert_stone.png
-  default_sand.png
 
 RealBadAngel (WTFPL):
   default_water_source_animated.png
@@ -71,23 +68,16 @@ Jordach (CC BY-SA 3.0):
   character.png
 
 PilzAdam (WTFPL):
-  default_jungleleaves.png
   default_junglesapling.png
   default_obsidian_glass.png
   default_obsidian_shard.png
   default_mineral_gold.png
-  default_snowball.png
 
 jojoa1997 (WTFPL):
   default_obsidian.png
 
 InfinityProject (WTFPL):
   default_mineral_diamond.png
-
-Splizard (CC BY-SA 3.0):
-  default_snow.png
-  default_snow_side.png
-  default_pine_sapling.png
 
 Zeg9 (CC BY-SA 3.0):
   default_coal_block.png
@@ -98,24 +88,14 @@ Zeg9 (CC BY-SA 3.0):
 
 paramat (CC BY-SA 3.0):
   wieldhand.png, derived from character.png by Jordach (CC BY-SA 3.0)
-  default_pinetree.png
-  default_pinetree_top.png
-  default_pinewood.png
   default_sandstone_brick.png
   default_obsidian_brick.png
-  default_river_water.png
-  default_river_water_source_animated.png
-  default_river_water_flowing_animated.png
   default_acacia_leaves.png
   default_acacia_sapling.png
-  default_acacia_tree.png
-  default_acacia_tree_top.png
   default_acacia_wood.png
   default_dry_grass.png
   default_dry_grass_side.png
   default_dry_grass_*.png
-  default_grass.png, derived from a texture by Philipbenr (CC BY-SA 3.0)
-  default_grass_side.png, derived from a texture by Philipbenr (CC BY-SA 3.0)
   default_stone_brick.png, derived from a texture by Cisoun (WTFPL)
   default_desert_stone_brick.png, derived from a texture by VanessaE (WTFPL)
 
@@ -123,37 +103,56 @@ brunob.santos (CC BY-SA 4.0):
   default_desert_cobble.png
 
 BlockMen (CC BY-SA 3.0):
-  default_wood.png
-  default_clay_brick.png
-  default_iron_ingot.png
-  default_gold_ingot.png
-  default_tool_steelsword.png
-  default_diamond.png
-  default_diamond_block.png
+  bubble.png
+  gui_*.png
+  heart.png
+  leaves_with_apple.obj
+  torch_*.obj
+  default_acacia_tree.png
+  default_acacia_tree_top.png
+  default_apple.png, based on texture of celeron55 (CC-BY-SA 3.0)
+  default_birch_leaves.png
+  default_birch_tree.png
+  default_birch_tree_top.png
   default_book.png
   default_book_written.png
-  default_tool_*.png
-  default_lava_source_animated.png
-  default_lava_flowing_animated.png
-  default_stick.png
+  default_charcoal.png
   default_chest_front.png
   default_chest_lock.png
   default_chest_side.png
   default_chest_top.png
-  default_jungletree_top.png, based on texture of Cisoun (WTFPL)
-  default_mineral_mese.png
+  default_clay_brick.png
+  default_diamond.png
+  default_diamond_block.png
+  default_gold_ingot.png
+  default_grass.png
+  default_grass_side.png
+  default_grass_*.png, based on texture of Gambit (WTFPL)
+  default_iron_ingot.png
+  default_jungleleaves.png
+  default_jungletree.png
+  default_jungletree_top.png
+  default_lava_flowing_animated.png
+  default_lava_source_animated.png
+  default_leaves.png
+  default_leaves_with_apple.png
   default_meselamp.png
-  default_apple.png, based on texture of celeron55 (CC-BY-SA 3.0)
-  default_leaves_with_apple.png, based on texture of Cisoun (WTFPL)
-  default_charcoal.png
-  bubble.png
-  heart.png
-  gui_*.png
-  leaves_with_apple.obj
-  torch_*.obj
+  default_mineral_mese.png
+  default_pine_tree.png
+  default_pine_tree_top.png
+  default_pine_wood.png
+  default_pine_sapling.png
+  default_sand.png
+  default_snow.png, based on texture of Splizard (CC BY-SA 3.0)
+  default_snow_side.png
+  default_snowball.png
+  default_stick.png
+  default_tool_*.png
+  default_wood.png
 
 sofar (CC BY-SA 3.0):
-  default_birch_*.png
+  default_birch_sapling.png
+  default_birch_wood.png
 
 Neuromancer (CC BY-SA 2.0):
   default_cobble.png, based on texture by Brane praefect
@@ -170,9 +169,7 @@ Gambit (WTFPL):
   default_gold_lump.png
   default_clay_lump.png
   default_coal.png
-  default_grass_*.png
   default_paper.png
-  default_diamond_block.png
 
 asl97 (WTFPL):
   default_ice.png
