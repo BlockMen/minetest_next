@@ -1,14 +1,14 @@
 function default.register_fence(itemstring, def)
 	local fence_texture_1 = "default_fence_overlay.png^"
 	local fence_texture_2 = "^default_fence_overlay.png^[makealpha:255,126,126"
-	
+
 	if not def.groups then
 		def.groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, fuel = 4}
 	end
 	if not def.sounds then
 		def.sounds = default.node_sound_wood_defaults()
 	end
-	
+
 	minetest.register_node(itemstring, {
 		description = def.description,
 		drawtype = "fencelike",
@@ -25,8 +25,8 @@ function default.register_fence(itemstring, def)
 		groups = def.groups,
 		sounds = def.sounds,
 	})
-	
-	
+
+
 	minetest.register_craft({
 		output = itemstring .. ' 4',
 		recipe = {
@@ -58,4 +58,10 @@ default.register_fence("default:fence_acaciawood", {
 	description = "Acacia Wood Fence",
 	texture = "default_acacia_wood.png",
 	material = "default:acacia_wood"
+})
+
+default.register_fence("default:fence_birchwood", {
+	description = "Birch Wood Fence",
+	texture = "default_birch_wood.png",
+	material = "default:birch_wood"
 })
