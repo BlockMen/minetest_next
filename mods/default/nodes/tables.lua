@@ -1,7 +1,7 @@
 function default.register_table(itemstring, def)
 	
 	if not def.groups then
-		def.groups = {choppy = 2, flammable = 2, oddly_breakable_by_hand = 2, fuel = 6},
+		def.groups = {choppy = 2, flammable = 2, oddly_breakable_by_hand = 2, fuel = 6}
 	end
 	if not def.sounds then
 		def.sounds = default.node_sound_wood_defaults()
@@ -61,4 +61,16 @@ default.register_table("default:table_birchwood", {
 	description = "Birch Wood Table",
 	texture = "default_birch_wood.png",
 	material = "default:birch_wood"
+})
+
+default.register_table("default:table_stone", {
+	description = "Stone Table",
+	texture = "default_stone.png",
+	material = "default:stone"
+})
+
+default.register_table("default:table_cobble", {
+	description = "Cobblestone Table",
+	texture = "default_cobble.png",
+	material = "default:cobble"
 })

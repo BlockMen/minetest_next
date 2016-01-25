@@ -41,7 +41,7 @@ dofile(modpath .. "/nodes/torch.lua")
 dofile(modpath .. "/nodes/lamps.lua")
 dofile(modpath .. "/nodes/signs.lua")
 dofile(modpath .. "/nodes/fences.lua")
-dofile(modpath .. "/nodes/furniture.lua")
+dofile(modpath .. "/nodes/tables.lua")
 
 -- special
 dofile(modpath .. "/nodes/furnace.lua")
