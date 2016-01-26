@@ -24,7 +24,7 @@ function default.register_table(itemstring, def)
 	})
 
 	minetest.register_craft({
-		output = itemstring .. " 2",
+		output = itemstring .. " 4",
 		recipe = {
 			{def.material, def.material, def.material},
 			{      "",     def.material,      ""     },
