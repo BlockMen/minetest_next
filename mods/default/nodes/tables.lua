@@ -66,11 +66,15 @@ default.register_table("default:table_birchwood", {
 default.register_table("default:table_stone", {
 	description = "Stone Table",
 	texture = "default_stone.png",
-	material = "default:stone"
+	material = "default:stone",
+	groups = {cracky = 2},
+	sounds = default.node_sound_stone_defaults()
 })
 
 default.register_table("default:table_cobble", {
 	description = "Cobblestone Table",
 	texture = "default_cobble.png",
-	material = "default:cobble"
+	material = "default:cobble",
+	groups = {cracky = 2},
+	sounds = default.node_sound_stone_defaults()
 })
