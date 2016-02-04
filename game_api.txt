@@ -13,6 +13,26 @@ Please note:
 	[#ABC] refers to a section in this document
 	^ Explanation for line above
 
+Overview:
+	- Bucket API
+	- Beds API, #Bed definition
+	- Doors API, #Door definition, #Trapdoor definition
+	- Farming API, #Hoe Definition, #Plant definition
+	- TNT API, #TNT definition
+	- Screwdriver API
+	- Stairs API
+	- Xpanes API, #Pane definition
+	- Fence API, #Fence definition
+	- Table API, #Table definition
+	- Player API, #Model definition
+	- Raillike definitions
+	- Default sounds
+	- Default constants
+	- Leafdecay
+	- Dyes, #Color groups, #Color groups
+	- Trees
+
+
 Bucket API
 ----------
 The bucket API allows registering new types of buckets for non-default liquids.
@@ -273,40 +293,29 @@ default.register_fence(itemstring, def)
 	^ The sounds of the fence. If it isn't defined it equals default.node_sound_wood_defaults().
 }
 
-Raillike definitions
---------------------
-The following nodes use the group `connect_to_raillike` and will only connect to
-raillike nodes within this group and the same group value.
-Use `minetest.raillike_group(<Name>)` to get the group value.
+Table API
+---------
+Creates tables of given material.
 
-| Node type             | Raillike group name
-+-----------------------+--------------------
-| default:rail          | "rail"
-| tnt:gunpowder         | "gunpowder"
-| tnt:gunpowder_burning	| "gunpowder"
+default.register_table(itemstring, def)
+ -> itemstring: used for nodename and crafting recipes.
+ -> def: See [#Table deinition]
 
-Example:
-If you want to add a new rail type and want it to connect with default:rail,
-add `connect_to_raillike=minetest.raillike_group("rail")` into the `groups` table
-of your node.
-
-
-Default sounds
---------------
-Sounds inside the default table can be used within the sounds field of node definitions.
-
-default.node_sound_defaults()
-default.node_sound_stone_defaults()
-default.node_sound_dirt_defaults()
-default.node_sound_sand_defaults()
-default.node_sound_wood_defaults()
-default.node_sound_leaves_defaults()
-default.node_sound_glass_defaults()
-
-Default constants
+#Table definition
 -----------------
-default.LIGHT_MAX
-^ The maximum light level (see [Node definition] light_source)
+{
+	description = "Wooden Table",
+	^ The name / description of the table
+	texture = "default_wood.png",
+	^ The texture for the node.
+	material = "default:wood",
+	^ The material which you need to craft the fence.
+	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, fuel = 6},
+	^ The groups of the table. If it isn't defined it equals {choppy = 2, 
+	  oddly_breakable_by_hand = 2, flammable = 2, fuel = 6}.
+	sounds = default.node_sound_wood_defaults()
+	^ The sounds of the table. If it isn't defined it equals default.node_sound_wood_defaults().
+}
 
 Player API
 ----------
@@ -346,8 +355,8 @@ default.player_get_animation(player)
 ^ Any of the fields of the returned table may be nil.
  -> player: PlayerRef
 
-Model Definition
-----------------
+#Model definition
+-----------------
 {
 	animation_speed = 30,            -- Default animation speed, in FPS.
 	textures = {"character.png", },  -- Default array of textures.
@@ -359,6 +368,41 @@ Model Definition
 		-- ...
 	},
 }
+
+Raillike definitions
+--------------------
+The following nodes use the group `connect_to_raillike` and will only connect to
+raillike nodes within this group and the same group value.
+Use `minetest.raillike_group(<Name>)` to get the group value.
+
+| Node type             | Raillike group name
++-----------------------+--------------------
+| default:rail          | "rail"
+| tnt:gunpowder         | "gunpowder"
+| tnt:gunpowder_burning	| "gunpowder"
+
+Example:
+If you want to add a new rail type and want it to connect with default:rail,
+add `connect_to_raillike=minetest.raillike_group("rail")` into the `groups` table
+of your node.
+
+
+Default sounds
+--------------
+Sounds inside the default table can be used within the sounds field of node definitions.
+
+default.node_sound_defaults()
+default.node_sound_stone_defaults()
+default.node_sound_dirt_defaults()
+default.node_sound_sand_defaults()
+default.node_sound_wood_defaults()
+default.node_sound_leaves_defaults()
+default.node_sound_glass_defaults()
+
+Default constants
+-----------------
+default.LIGHT_MAX
+^ The maximum light level (see [Node definition] light_source)
 
 Leafdecay
 ---------
