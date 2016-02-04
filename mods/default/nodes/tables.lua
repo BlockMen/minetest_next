@@ -1,36 +1,41 @@
 function default.register_table(itemstring, def)
+	local material = def.material
 	
+	-- set defaults if nothing is set already
 	if not def.groups then
 		def.groups = {choppy = 2, flammable = 2, oddly_breakable_by_hand = 2, fuel = 6}
 	end
 	if not def.sounds then
 		def.sounds = default.node_sound_wood_defaults()
 	end
-	
-	minetest.register_node(itemstring, {
-		description = def.description,
-		tiles = {def.texture},
-		drawtype = "nodebox",
-		paramtype = "light",
-		groups = def.groups,
-		sounds = def.sounds,
-		node_box = {
-			type = "fixed",
-			fixed = {
-				{-0.5, 0.375, -0.5, 0.5, 0.5, 0.5},
-				{-0.1875, -0.5, -0.1875, 0.1875, 0.375, 0.1875},
-			}
+
+	-- set table properties
+	def.tiles = {def.texture}
+	def.paramtype = "light"
+	def.drawtype = "nodebox"
+	def.node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.5, 0.375, -0.5, 0.5, 0.5, 0.5},
+			{-0.1875, -0.5, -0.1875, 0.1875, 0.375, 0.1875}
 		}
-	})
+	}
+	
+	-- clean up variables
+	def.texture = nil
+	def.material = nil
+	
+	minetest.register_node(itemstring, def)
 
 	minetest.register_craft({
 		output = itemstring .. " 4",
 		recipe = {
-			{def.material, def.material, def.material},
-			{      "",     def.material,      ""     },
-			{      "",     def.material,      ""     },
+			{material, material, material},
+			{   "",    material,    ""   },
+			{   "",    material,    ""   },
 		}
 	})
+
 end
 
 default.register_table("default:table_wood", {
