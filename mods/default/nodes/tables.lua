@@ -10,7 +10,6 @@ function default.register_table(itemstring, def)
 	end
 
 	-- set table properties
-	def.tiles = {def.texture}
 	def.paramtype = "light"
 	def.drawtype = "nodebox"
 	def.node_box = {
@@ -22,11 +21,12 @@ function default.register_table(itemstring, def)
 	}
 	
 	-- clean up variables
-	def.texture = nil
 	def.material = nil
 	
+	-- register the table node
 	minetest.register_node(itemstring, def)
-
+	
+	-- and register the crafting recipe
 	minetest.register_craft({
 		output = itemstring .. " 4",
 		recipe = {
@@ -40,37 +40,37 @@ end
 
 default.register_table("default:table_wood", {
 	description = "Wooden Table",
-	texture = "default_wood.png",
+	tiles = {"default_wood.png"},
 	material = "default:wood"
 })
 
 default.register_table("default:table_junglewood", {
 	description = "Junglewood Table",
-	texture = "default_junglewood.png",
+	tiles = {"default_junglewood.png"},
 	material = "default:junglewood"
 })
 
 default.register_table("default:table_pinewood", {
 	description = "Pine Wood Table",
-	texture = "default_pine_wood.png",
+	tiles = {"default_pine_wood.png"},
 	material = "default:pinewood"
 })
 
 default.register_table("default:table_acaciawood", {
 	description = "Acacia Wood Table",
-	texture = "default_acacia_wood.png",
+	tiles = {"default_acacia_wood.png"},
 	material = "default:acacia_wood"
 })
 
 default.register_table("default:table_birchwood", {
 	description = "Birch Wood Table",
-	texture = "default_birch_wood.png",
+	tiles = {"default_birch_wood.png"},
 	material = "default:birch_wood"
 })
 
 default.register_table("default:table_stone", {
 	description = "Stone Table",
-	texture = "default_stone.png",
+	tiles = {"default_stone.png"},
 	material = "default:stone",
 	groups = {cracky = 2},
 	sounds = default.node_sound_stone_defaults()
@@ -78,7 +78,7 @@ default.register_table("default:table_stone", {
 
 default.register_table("default:table_cobble", {
 	description = "Cobblestone Table",
-	texture = "default_cobble.png",
+	tiles = {"default_cobble.png"},
 	material = "default:cobble",
 	groups = {cracky = 2},
 	sounds = default.node_sound_stone_defaults()
