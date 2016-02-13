@@ -36,20 +36,22 @@ dofile(modpath .. "/nodes/planks.lua")
 
 dofile(modpath .. "/nodes/bricks.lua")
 
+-- decoration
+dofile(modpath .. "/nodes/torch.lua")
+dofile(modpath .. "/nodes/lamps.lua")
+dofile(modpath .. "/nodes/signs.lua")
+dofile(modpath .. "/nodes/fences.lua")
+dofile(modpath .. "/nodes/tables.lua")
 
 -- special
-dofile(modpath .. "/nodes/torch.lua")
 dofile(modpath .. "/nodes/furnace.lua")
 dofile(modpath .. "/nodes/chests.lua")
 dofile(modpath .. "/nodes/bookshelf.lua")
-dofile(modpath .. "/nodes/lamps.lua")
 
 dofile(modpath .. "/nodes/food.lua")
 
 dofile(modpath .. "/nodes/latter.lua")
 dofile(modpath .. "/nodes/rails.lua")
-dofile(modpath .. "/nodes/signs.lua")
-dofile(modpath .. "/nodes/fences.lua")
 
 dofile(modpath .. "/nodes/nyancat.lua")
 
