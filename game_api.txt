@@ -303,11 +303,12 @@ default.register_table(itemstring, def)
 
 #Table definition
 -----------------
+By the way you can use here all preferences of the normal minetest.register_node function.
 {
 	description = "Wooden Table",
 	^ The name / description of the table
-	texture = "default_wood.png",
-	^ The texture for the node.
+	tiles = {"default_wood.png"},
+	^ The texture(s) of the table.
 	material = "default:wood",
 	^ The material which you need to craft the fence.
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, fuel = 6},
