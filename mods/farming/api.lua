@@ -207,7 +207,7 @@ farming.register_plant = function(name, def)
 	end
 
 
-	local g = {seed = 1, snappy = 3, attached_node = 1}
+	local g = {seed = 1, snappy = 3, attached_node = 1, dissolve = 1}
 	for k, v in pairs(def.fertility) do
 		g[v] = 1
 	end
@@ -273,7 +273,7 @@ farming.register_plant = function(name, def)
 			end
 
 
-		local nodegroups = {snappy = 3, flammable = 2, plant = 1, not_in_creative_inventory = 1, attached_node = 1}
+		local nodegroups = {snappy = 3, flammable = 2, plant = 1, not_in_creative_inventory = 1, attached_node = 1, dissolve = 1}
 		nodegroups[pname] = i
 		minetest.register_node(":" .. mname .. ":" .. pname .. "_" .. i, {
 			drawtype = "plantlike",

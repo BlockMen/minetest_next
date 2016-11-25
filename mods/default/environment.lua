@@ -34,6 +34,19 @@ minetest.register_abm({
 	end,
 })
 
+--
+-- Remove nodes in liquids
+--
+
+minetest.register_abm({
+    nodenames = {"group:dissolve"},
+    neighbors = {"group:liquid"},
+    interval = 2,
+    chance = 5,
+    action = function(pos, node)
+	minetest.set_node(pos, {name = "air"})
+    end,
+})
 
 --
 -- Growing
