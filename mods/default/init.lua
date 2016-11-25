@@ -50,6 +50,8 @@ dofile(modpath .. "/trees.lua")
 
 dofile(modpath .. "/player.lua")
 
+dofile(modpath .. "/commands.lua")
+
 dofile(modpath .. "/aliases.lua")
 dofile(modpath .. "/legacy.lua")
 
